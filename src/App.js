@@ -58,7 +58,7 @@ class App extends Component {
     this.counter = 0;
 
     setTimeout(() => {
-      this.timerWriter = setInterval(() => this.sayHello(str_presentation,'presentation'), 120)
+      this.timerWriter = setInterval(() => this.sayHello(str_presentation,'presentation', true), 120)
     },2000)
 
 
@@ -80,14 +80,27 @@ class App extends Component {
     // console.log(node);
   }
 
-  sayHello($string, statename){
+  sayHello($string, statename, cursor){
+    // Création de notre tag
+    const cursorTag = document.createElement('span');
+    const cursorCurrent = document.querySelector('.cursor');
+    cursorTag.className = "cursor";
+    const node = document.querySelector('.presentation-header')
     // this.setState((prevState,props) => ({
     //   counter: prevState.counter+1}))
     console.log('valeur de counter: '+this.counter)
     console.log($string.length-1)
     if(this.counter > $string.length-1 ){
       clearInterval(this.timerWriter)
+      if(cursor){
+        setTimeout(()=>{
+          node.removeChild(cursorCurrent);
+        },2000)
+      }
     }else{
+      // if(!cursor){
+      //   node.appendChild(cursorTag);
+      // }
       this.setState((prevState, props) =>({
         presentation: prevState[statename]+$string[this.counter]
       }))
@@ -177,6 +190,7 @@ class App extends Component {
               Filtre:
             </p>
             <Buttons
+              e= "ddd"
               containerButton={'filters'}
               defaultClass={'button-filter'}
               changeSkill={this.updateShowSkill}

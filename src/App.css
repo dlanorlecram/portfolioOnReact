@@ -64,7 +64,10 @@
   animation-name:lighting;
   animation-duration:.6s;
   animation-iteration-count: infinite;
-  margin-left: 2px;
+  /*margin-left: 2px;*/
+  margin-left: -12px;
+  position: relative;
+  left: 12px;
 }
 
 @keyframes lighting {
