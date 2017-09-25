@@ -1,0 +1,59 @@
+componentDidMount() {
+  // Change l'état de current_skill
+  // var buttonSelected = document.querySelector('.button-selected');
+  // var skillLoaded = buttonSelected.dataset.percent
+  // console.log(skillLoaded)
+  // this.setState((prevState, props) => ({
+  // skill: prevState.skill+Number(skillLoaded)}))
+  /*
+  */
+  const timing = 9000;
+  this.timerSkill = setInterval(function(){
+    this.setState((prevState, props) => ({
+      count: prevState.count +=1
+    }))
+    console.log('nouvel valeur de count: '+this.state.count)
+  }.bind(this) ,timing)
+  /*
+  */
+}
+
+componentDidUpdate(preProps, prevState) {
+  console.log(this.state)
+
+    //clearInterval(this.timerSkill)
+
+}
+updateShowSkill(newSkill){
+  //j'ai récupéré ma donnée
+  console.log('j\'ai une nouvelle valeur: '+newSkill)
+  //Je Stocke la valeur actuelle
+  var currentSkill = Number(this.state.skill);
+  //Faire la différence ab
+  var gap = Math.abs(newSkill - currentSkill)
+  // var toBeUpdate = setInterval(function(){
+  //   //Si plu grand
+  //   if(currentSkill < newSkill){
+  //     if(gap < 0){
+  //       clearInterval(toBeUpdate)
+  //     }else{
+  //       currentSkill++
+  //       this.setState({skill: currentSkill})
+  //       console.log(currentSkill)
+  //       gap--
+  //     }
+  //   }
+  //   //Si plus petit
+  //   //gap === 0 ? clearInterval(toBeUpdate) : console.log(gap)
+  //   else{
+  //     if(gap < 0){
+  //       clearInterval(toBeUpdate)
+  //     }else{
+  //       currentSkill--
+  //       this.setState({skill: currentSkill})
+  //       console.log(currentSkill)
+  //       gap--
+  //     }
+  //   }
+  // },90)
+}

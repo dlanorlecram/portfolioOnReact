@@ -1,0 +1,130 @@
+.card {
+  background-color: white;
+  width: calc(33% - 30px);
+  flex: 0 1 auto;
+  border-radius: 2px;
+  min-height: 245px;
+  margin: 15px 0 30px;
+  overflow: hidden;
+  width: auto;
+  max-width: 375px;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: .9s, box-shadow .5s, opacity .75s;
+}
+
+@media screen and (min-width: 560px){
+  .card {
+    max-width: none;
+    margin: 15px 15px 30px;
+  }
+}
+
+.card:hover{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.card.mobile-active{
+  overflow: unset;
+}
+
+.card-title {
+  font-size: 18px;
+  font-family: 'Overpass', sans-serif;
+  margin: 0;
+  text-transform: capitalize;
+}
+.card .card-big-title{
+  display: none;
+}
+.mobile-active .card-big-title {
+  display: block;
+  font-family: 'Overpass',sans-serif;
+  color: #6C6C6C;
+  text-transform: capitalize;
+  font-size: 18px;
+  margin: 15px 0 8px 25px;
+}
+
+.card-content {
+  height: 0;
+  font-family: 'Overpass', sans-serif;
+  font-size: 13px;
+  padding: 0px 15px;
+  transition: .8s;
+  margin: 0;
+}
+
+.mobile-active .card-content {
+  height: auto;
+}
+
+.card-description {
+  color: #6C6C6C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 49px;
+  padding: 0 12px;
+}
+.card-picture {
+  //background-image: url('./logo_project.jpg');
+  height: 195px;
+  border-radius: 2px 2px 0 0;
+  background-size: cover;
+}
+
+.card-description i {
+  margin:0 5px;
+}
+
+.card.hide {
+  display: none;
+  transition: 2s;
+}
+
+.gallery-projects {
+  min-height: 292px;
+  padding: 25px 0 1px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 1170px) {
+  .gallery-projects {
+    margin:0 auto;
+    max-width: 2000px;
+  }
+  .card {
+    width: calc(25% - 30px);
+  }
+}
+@media screen and (min-width: 961px) and (max-width: 1169px) {
+  .gallery-projects {
+    margin:0 auto;
+    max-width: 900px;
+  }
+  .card {
+    width: calc(33.33% - 30px);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 960px) {
+  .gallery-projects {
+    margin: 0 auto;
+    max-width: 900px
+  }
+
+  .card {
+    width: calc(50% - 30px);
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gallery-projects {
+    margin: 0 auto;
+    max-width: 375px;
+  }
+}
