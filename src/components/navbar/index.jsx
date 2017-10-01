@@ -28,9 +28,9 @@ export default class Navbar extends React.Component {
 
   render() {
     const listItems = [
-      ['Accueil', '/'],
-      ['Projet', 'projet'],
-      ['À propos', 'a-propos'],
+      ['Accueil', '#'],
+      ['Projet', '#projet'],
+      ['À propos', '#a-propos'],
       ['Contact', 'mailto:ronald.marcel.mr@gmail.com']
     ].map((item, key) => <ListItemMenu key={key}>
       <a href={item[1]}>

@@ -30,10 +30,10 @@ function Buttons(props){
         const nodeCard = document.querySelectorAll('.card');
         nodeCard.forEach($node => {
           if($node.dataset.cat !== el.id && el.id !== "tout"){
-            console.log("A"+el.id)
+            console.log("A "+el.id)
             $node.classList.add('hide');
           }else{
-            console.log("B"+el.id)
+            console.log("B "+el.id)
             $node.classList.remove('hide');
           }
         })

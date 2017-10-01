@@ -1,30 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './components/navbar/index';
-import Intro from './containers/Home/intro';
+import Intro from './containers/Home/intro/intro';
+import Project from './containers/Home/project/project';
 import Footer from './components/footer/index';
 import Buttons from './components/button/buttons';
-import Projects from './components/project/index';
 import data_skill from './data/index';
-//import writer from './utils';
 import firebase from './database/database.js';
 import '../node_modules/devicon-2.2/devicon.css';
 import './App.css';
-
-const strSubtitle = `Un développeur front-end, diplômé d’un Master I en design produit (DSAA). Vous pouvez me trouver sur <span>Linkedin</span>, <span>Twitter</span> et <span>Github</span>.`
-const str_presentation = 'Salut, je m’appelle\nRonald Marcel!';
 
 class App extends Component {
   constructor(props){
     super(props);
 
-    this.updateShowSkill = this.updateShowSkill.bind(this);
-    // this.sayHello = this.sayHello.bind(this);
     this.randomKey = this.randomKey.bind(this);
     this.magicNumber = this.randomKey(data_skill.length);
+
     this.state = {
-      presentation: str_presentation,
-      strSubtitle: strSubtitle,
       skill: data_skill[this.magicNumber].percent,
       projects: [],
       strCntrHome: 0,
@@ -47,99 +40,16 @@ class App extends Component {
       this.setState({projects})
     })
 
-  /**
-   *  Launch Writer
-   **/
-
-    // this.startWritingH1=()=>{
-    //   setTimeout(() => {
-    //     this.timerWriter = setInterval(() => this.sayHello(str_presentation, 'presentation', true), 120)
-    //   },2000)
-    // }
-    // this.startWritingH1()
-    //
-    // this.startWritingP=()=>{
-    //   setTimeout(() => {
-    //     this.timerWriter = setInterval(() => this.sayHello(strSubtitle, 'strSubtitle', false), 120)
-    //   },500)
-    // }
-
   }
-
-  componentDidUpdate(prevProps, prevState) {
-
-    // if(this.state.nextWriting && this.state.strSubtitle.length === 0){
-    //   console.log("Je suis :"+ this.state.nextWriting);
-    //   this.setState({nextWriting: false})
-    //
-    //   clearTimeout(this.startWritingH1)
-    //
-    //   this.startWritingP();
-    // }
-
-  }
-
-  //   sayHello(str, stateName, cursor){
-  //
-  //   if(this.state.strCntrHome > str.length-1){
-  //     this.setState((prevState, props) => ({
-  //       strCntrHome: 0,
-  //       nextWriting: true
-  //     }))
-  //
-  //     clearInterval(this.timerWriter);
-  //   }else{
-  //     if(!cursor && !this.state.shouldCreateCursor){
-  //       this.setState((prevState, props) => ({shouldCreateCursor: true}))
-  //     }
-  //
-  //     this.setState((prevState, props) => ({
-  //       [stateName]: prevState[stateName]+ str[prevState.strCntrHome],
-  //       strCntrHome: prevState.strCntrHome + 1
-  //     }))
-  //   }
-  // }
 
   randomKey(max){
     let number= Math.floor( Math.random() * max )
     return number;
   }
 
-  /**
-   *  Handle
-   **/
 
-  updateShowSkill(newSkill) {
-    let newRestSkill = Math.abs(Number(this.state.skill - newSkill));
-    let currentSkill = Number(this.state.skill);
-
-    function timerUpdate() {
-      if(currentSkill < newSkill){
-        if(newRestSkill <= 0){
-          clearInterval(timerUpdate);
-        } else {
-          currentSkill++;
-          this.setState({skill: currentSkill});
-          newRestSkill--;
-        }
-      } else {
-        if(newRestSkill <= 0) {
-          clearInterval(timerUpdate);
-        } else {
-          currentSkill--;
-          this.setState({skill: currentSkill});
-          newRestSkill--;
-        }
-      }
-    }
-
-    setInterval(timerUpdate.bind(this), 50);
-  }
 
   render() {
-
-    // let appendCursorP = this.state.shouldCreateCursor ? <span className="cursor">_</span> : null;
-    // let appendCursorH = !this.state.shouldCreateCursor ? <span className="cursor">_</span> : null;
 
     return (
       <div>
@@ -164,24 +74,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-  {/* Container projects */}
-        <div id='project' className='container-project'>
-          <div className='filter-bloc'>
-            <p>
-              Filtre:
-            </p>
-            <Buttons
-              e= "ddd"
-              containerButton={'filters'}
-              defaultClass={'button-filter'}
-              changeSkill={this.updateShowSkill}
-              classSelected={'filter-selected'}
-              dataButton={['Tout','Website','Design']}
-              opt={''}/>
-          </div>
-          <Projects dataProject={ this.state.projects } />
-        </div>
-  {/* Container footer */}
+        <Project data={this.state.projects} />
         <Footer />
       </div>
     );

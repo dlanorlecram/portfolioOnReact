@@ -1,5 +1,5 @@
 import glamorous from 'glamorous';
-import Intro from './src/intro.jpg'
+import Intro from '../src/intro.jpg'
 import { css } from 'glamor';
 
 const bounceFirstCircle = css.keyframes({

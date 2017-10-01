@@ -125,10 +125,6 @@
   margin: 16px 0 35px 10px;
 }
 
-/*.skill- {
-  display: inline-block;
-}*/
-
 .skill-percent {
   font-size: 72px;
   font-family: 'Roboto Mono', monospace;
@@ -161,10 +157,10 @@
   font-weight: 900;
 }
 
-.container-project {
+/*.container-project {
   background-color: rgb(255,184,48);
   padding: 21px 15px;
-}
+}*/
 
 .filter-bloc {
   width: 245px;
