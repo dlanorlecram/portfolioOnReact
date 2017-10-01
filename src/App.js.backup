@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './components/navbar/index';
-import Intro from './containers/Home/intro';
 import Footer from './components/footer/index';
 import Buttons from './components/button/buttons';
 import Projects from './components/project/index';
@@ -11,7 +10,7 @@ import firebase from './database/database.js';
 import '../node_modules/devicon-2.2/devicon.css';
 import './App.css';
 
-const strSubtitle = `Un développeur front-end, diplômé d’un Master I en design produit (DSAA). Vous pouvez me trouver sur <span>Linkedin</span>, <span>Twitter</span> et <span>Github</span>.`
+const strSubtitle = `Un développeur front-end, diplômé d’un Master I en design produit (DSAA). Vous pouvez me trouver sur &lt;span&gt;Linkedin, Twitter et Github.`
 const str_presentation = 'Salut, je m’appelle\nRonald Marcel!';
 
 class App extends Component {
@@ -19,12 +18,12 @@ class App extends Component {
     super(props);
 
     this.updateShowSkill = this.updateShowSkill.bind(this);
-    // this.sayHello = this.sayHello.bind(this);
+    this.sayHello = this.sayHello.bind(this);
     this.randomKey = this.randomKey.bind(this);
     this.magicNumber = this.randomKey(data_skill.length);
     this.state = {
-      presentation: str_presentation,
-      strSubtitle: strSubtitle,
+      presentation: '',
+      strSubtitle: '',
       skill: data_skill[this.magicNumber].percent,
       projects: [],
       strCntrHome: 0,
@@ -51,54 +50,54 @@ class App extends Component {
    *  Launch Writer
    **/
 
-    // this.startWritingH1=()=>{
-    //   setTimeout(() => {
-    //     this.timerWriter = setInterval(() => this.sayHello(str_presentation, 'presentation', true), 120)
-    //   },2000)
-    // }
-    // this.startWritingH1()
-    //
-    // this.startWritingP=()=>{
-    //   setTimeout(() => {
-    //     this.timerWriter = setInterval(() => this.sayHello(strSubtitle, 'strSubtitle', false), 120)
-    //   },500)
-    // }
+    this.startWritingH1=()=>{
+      setTimeout(() => {
+        this.timerWriter = setInterval(() => this.sayHello(str_presentation, 'presentation', true), 120)
+      },2000)
+    }
+    this.startWritingH1()
+
+    this.startWritingP=()=>{
+      setTimeout(() => {
+        this.timerWriter = setInterval(() => this.sayHello(strSubtitle, 'strSubtitle', false), 120)
+      },500)
+    }
 
   }
 
   componentDidUpdate(prevProps, prevState) {
 
-    // if(this.state.nextWriting && this.state.strSubtitle.length === 0){
-    //   console.log("Je suis :"+ this.state.nextWriting);
-    //   this.setState({nextWriting: false})
-    //
-    //   clearTimeout(this.startWritingH1)
-    //
-    //   this.startWritingP();
-    // }
+    if(this.state.nextWriting && this.state.strSubtitle.length === 0){
+      console.log("Je suis :"+ this.state.nextWriting);
+      this.setState({nextWriting: false})
+
+      clearTimeout(this.startWritingH1)
+
+      this.startWritingP();
+    }
 
   }
 
-  //   sayHello(str, stateName, cursor){
-  //
-  //   if(this.state.strCntrHome > str.length-1){
-  //     this.setState((prevState, props) => ({
-  //       strCntrHome: 0,
-  //       nextWriting: true
-  //     }))
-  //
-  //     clearInterval(this.timerWriter);
-  //   }else{
-  //     if(!cursor && !this.state.shouldCreateCursor){
-  //       this.setState((prevState, props) => ({shouldCreateCursor: true}))
-  //     }
-  //
-  //     this.setState((prevState, props) => ({
-  //       [stateName]: prevState[stateName]+ str[prevState.strCntrHome],
-  //       strCntrHome: prevState.strCntrHome + 1
-  //     }))
-  //   }
-  // }
+    sayHello(str, stateName, cursor){
+
+    if(this.state.strCntrHome > str.length-1){
+      this.setState((prevState, props) => ({
+        strCntrHome: 0,
+        nextWriting: true
+      }))
+
+      clearInterval(this.timerWriter);
+    }else{
+      if(!cursor && !this.state.shouldCreateCursor){
+        this.setState((prevState, props) => ({shouldCreateCursor: true}))
+      }
+
+      this.setState((prevState, props) => ({
+        [stateName]: prevState[stateName]+ str[prevState.strCntrHome],
+        strCntrHome: prevState.strCntrHome + 1
+      }))
+    }
+  }
 
   randomKey(max){
     let number= Math.floor( Math.random() * max )
@@ -138,13 +137,25 @@ class App extends Component {
 
   render() {
 
-    // let appendCursorP = this.state.shouldCreateCursor ? <span className="cursor">_</span> : null;
-    // let appendCursorH = !this.state.shouldCreateCursor ? <span className="cursor">_</span> : null;
+    let appendCursorP = this.state.shouldCreateCursor ? <span className="cursor">_</span> : null;
+    let appendCursorH = !this.state.shouldCreateCursor ? <span className="cursor">_</span> : null;
 
     return (
       <div>
         <Navbar/>
-        <Intro/>
+        <div className='intro'>
+          <div className='picture-wrapper'>
+            <div className='inner'></div>
+          </div>
+          <h1 className='presentation-header'>
+            {this.state.presentation}
+            {appendCursorH}
+          </h1>
+          <code className='subtitle-header'>
+            {this.state.strSubtitle}
+            {appendCursorP}
+          </code>
+        </div>
   {/* Container Skill */}
         <div className='container-skill'>
           <p className='text-background'>À propos</p>

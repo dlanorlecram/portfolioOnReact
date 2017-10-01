@@ -1,26 +1,57 @@
-import React, {Component} from 'react';
-import './navbar.css'
+import React from 'react';
+import {
+  Nav,
+  BoxMenuHide,
+  ListItemMenu,
+  Bar,
+  HamburgerToggle,
+  Ul
+} from './navbar.js'
 
-export default class Navbar extends Component {
-  constructor(props){
-    super();
-    this.handleToggle = this.handleToggle.bind(this)
+export default class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = ({label: false})
   }
 
-  handleToggle(e){
-    console.log(e.target.classList.contains('active'))
-    e.target.classList.toggle('active')
+  handleToggle(e) {
+    const $el = e.currentTarget;
+    const $sibling = $el.parentNode.firstChild
+    $el.firstChild.classList.toggle('animated')
+    let label = $el.firstChild.classList.contains('animated')
+      ? true
+      : false
+    this.setState((prevState) => ({label}))
+    console.log(label)
+    $sibling.classList.toggle('expanded')
   }
 
-  render(){
+  render() {
+    const listItems = [
+      ['Accueil', '/'],
+      ['Projet', 'projet'],
+      ['À propos', 'a-propos'],
+      ['Contact', 'mailto:ronald.marcel.mr@gmail.com']
+    ].map((item, key) => <ListItemMenu key={key}>
+      <a href={item[1]}>
+        {item[0]}
+      </a>
+    </ListItemMenu>)
 
     return (
-      <nav style={{
-        backgroundColor: 'rgba(255, 255, 255,0.95)',
-        zIndex: 1
-        }}>
-        <div className='menu-toggle' onClick={this.handleToggle}></div>
-      </nav>
+      <Nav isWindowFull={false}>
+        <BoxMenuHide>
+          <Ul id='menu'>
+            {listItems}
+          </Ul>
+        </BoxMenuHide>
+        <HamburgerToggle onClick={(e) => this.handleToggle(e)}>
+          <Bar/>
+          <span>
+            {this.state.label ? 'FERMER' : 'MENU'}
+            </span>
+        </HamburgerToggle>
+      </Nav>
     )
   }
 }

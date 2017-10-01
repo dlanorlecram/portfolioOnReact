@@ -3,7 +3,7 @@ import './project.css';
 
 function Projects(props){
   function handleClick(e){
-    console.log(e);
+    console.log(e.target);
   }
 
   const nodeProjects = props.dataProject.map((obj, key) =>
@@ -11,7 +11,7 @@ function Projects(props){
       <h2 className='card-big-title'>{ obj.title }</h2>
       {/*<div className='card-picture' style={{backgroundImage:"url('https://firebasestorage.googleapis.com/v0/b/portfolio-afdea.appspot.com/o/project%2Flproject.jpg?alt=media&token=5b298f16-05eb-44bc-93a7-86523f25959d')"}}></div>*/}
       <picture>
-        <img src='http://via.placeholder.com/400x300/F3C880/fff'/>
+        <img alt='name of project' src='http://via.placeholder.com/400x300/F3C880/fff'/>
       </picture>
       <div className='card-description'>
         <p className='card-title'>{ obj.title }</p>
