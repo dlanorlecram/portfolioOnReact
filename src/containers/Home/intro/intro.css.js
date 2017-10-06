@@ -1,6 +1,7 @@
 import glamorous from 'glamorous';
 import Intro from '../src/intro.jpg'
-import { css } from 'glamor';
+import { mediaQueries } from '../../../data/responsive'
+import { css } from 'glamor'
 
 const bounceFirstCircle = css.keyframes({
   '0%, 50%': {transform:'scale(0)'},
@@ -47,17 +48,18 @@ export const Picture = glamorous.div({
   }
 })
 
-export const Titre = glamorous.h1({
+export const Title = glamorous.h1({
   fontFamily: '"Overpass", sans-serif',
   fontWeight: 400,
-  fontSize: 24,
   color: '#4A4A4A',
   textAlign: 'center',
   whiteSpace: 'pre',
   margin: 0,
   marginTop: 29,
   minHeight: 74,
-  animation: `${translateTitre} 2.2s`
+  animation: `${translateTitre} 2.2s`,
+  [mediaQueries.max959]:{fontSize: 24},
+  [mediaQueries.min960]:{fontSize: 35}
 })
 
 export const Subtitle = glamorous.p({
@@ -66,12 +68,12 @@ export const Subtitle = glamorous.p({
   fontStyle: 'italic',
   textAlign: 'center',
   color: 'rgba(0, 0, 0, .44)',
-  maxWidth: 284,
-  width: '100%',
-  margin: 0,
-  marginTop: 29,
+  maxWidth: 410,
+  margin: '29px 15px 0',
   minHeight: 100,
   wordWrap: 'break-word',
+  [mediaQueries.max959]:{fontSize: 16},
+  [mediaQueries.min960]:{fontSize: 20},
   animation: `${translateSubtitle} 3s`,
   '> a': {
   color: '#dfB354',

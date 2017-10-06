@@ -32,7 +32,7 @@ export default class Project extends React.Component {
 
   render() {
     return(
-      <ContainerProject>
+      <ContainerProject id='projet'>
         <FilterBlock>
           <p>
             Filtre:

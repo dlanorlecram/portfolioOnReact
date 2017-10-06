@@ -1,11 +1,12 @@
 import React from 'react';
 import {
   Nav,
-  BoxMenuHide,
+  MenuResponsive,
   ListItemMenu,
   Bar,
   HamburgerToggle,
-  Ul
+  Ul,
+  LogoName
 } from './navbar.js'
 
 export default class Navbar extends React.Component {
@@ -14,13 +15,31 @@ export default class Navbar extends React.Component {
     this.state = ({label: false})
   }
 
+  componentDidMount() {
+    const $nav = document.querySelector('nav');
+    const $a = document.querySelector('nav>div>a')
+    const windowHeight = window.outerHeight
+    console.log($a)
+    window.onscroll = () => {
+      if(window.innerWidth >= 960){
+        console.log('on')
+        const onEventScroll = window.scrollY;
+        if(onEventScroll > 100){
+          $nav.classList.add('transition-style')
+          $a.classList.remove('hidden')
+        }else{
+          $nav.classList.remove('transition-style')
+          $a.classList.add('hidden')
+        }
+      }
+    }
+  }
+
   handleToggle(e) {
     const $el = e.currentTarget;
-    const $sibling = $el.parentNode.firstChild
+    const $sibling = $el.parentNode.childNodes[1]
     $el.firstChild.classList.toggle('animated')
-    let label = $el.firstChild.classList.contains('animated')
-      ? true
-      : false
+    let label = $el.firstChild.classList.contains('animated') ? true : false
     this.setState((prevState) => ({label}))
     console.log(label)
     $sibling.classList.toggle('expanded')
@@ -29,23 +48,30 @@ export default class Navbar extends React.Component {
   render() {
     const listItems = [
       ['Accueil', '#'],
-      ['Projet', '#projet'],
       ['À propos', '#a-propos'],
+      ['Projet', '#projet'],
       ['Contact', 'mailto:ronald.marcel.mr@gmail.com']
-    ].map((item, key) => <ListItemMenu key={key}>
-      <a href={item[1]}>
-        {item[0]}
-      </a>
-    </ListItemMenu>)
+    ].map((item, key) =>
+      <ListItemMenu key={key}>
+        <a href={item[1]}>
+          {item[0]}
+        </a>
+      </ListItemMenu>)
 
     return (
-      <Nav isWindowFull={false}>
-        <BoxMenuHide>
+      <Nav>
+        <LogoName>
+          <a href='/' className='hidden'>Ronald Marcel</a>
+        </LogoName>
+        <MenuResponsive>
           <Ul id='menu'>
             {listItems}
           </Ul>
-        </BoxMenuHide>
-        <HamburgerToggle onClick={(e) => this.handleToggle(e)}>
+        </MenuResponsive>
+
+        <HamburgerToggle style={{
+            color: ((e)=>console.log(e))
+          }} onClick={(e) => this.handleToggle(e)}>
           <Bar/>
           <span>
             {this.state.label ? 'FERMER' : 'MENU'}

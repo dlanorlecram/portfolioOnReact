@@ -1,17 +1,7 @@
+import {mediaQueries} from '../../../data/responsive'
 import glamorous from 'glamorous';
 
-const mediaQueries = {
-  hightscreen:'',
-  desktop:'',
-  tablet:'@media only screen and (min-width: 501px) and (max-width: 960px)',
-  phone: '@media only screen and (max-width: 500px)',
-  min560: '@media only screen and (min-width: 560px)',
-  max767: '@media screen and (max-width: 767px)',
-  int768to960: '@media screen and (min-width: 768px) and (max-width: 960px)',
-  int768to1169: '@media screen and (min-width: 768px) and (max-width: 1169px)',
-  int961to1169: '@media screen and (min-width: 961px) and (max-width: 1169px)',
-  min1170: '@media screen and (min-width: 1170px)'
-}
+console.log(mediaQueries)
 
 export const ContainerProject = glamorous.div({
   backgroundColor: 'rgb(255,184,48)',
@@ -26,10 +16,7 @@ export const FilterBlock = glamorous.div({
     color: '#7e6130',
     fontSize: 16,
     fontFamily:'"Overpass", sans-serif',
-    marginBottom: 5,
-    [mediaQueries.tablet]: {
-      color:'red!important'
-    }
+    marginBottom: 5
   }
 })
 
@@ -37,6 +24,7 @@ export const FilterBlock = glamorous.div({
 
 export const GalleryProjects = glamorous.div({
   minHeight: '292px',
+  position: 'Relative',
   padding: '25px 0 1px',
   display: 'flex',
   flexWrap: 'wrap',
@@ -55,9 +43,39 @@ export const GalleryProjects = glamorous.div({
 
 // Car
 
+const headTitle = {
+  '> h2': {
+      maxHeight: '51px',
+      opacity: 1,
+      padding: '15px 25px 8px 0',
+      transition: 'max-height 100ms cubic-bezier(.42,0,1,1), opacity 250ms 250ms',
+      '>button':{
+        fontSize:12,
+        lineHeight:'28px',
+        cursor: 'pointer',
+        color: '#4A4A4A',
+        float: 'right',
+        fontFamily: '"Overpass", sans-serif',
+      }
+  }
+}
+
+const cardtitle = {
+  '>div>.to-hide': {
+    opacity: 0,
+    transition: '200ms'
+  }
+}
+
+const cardContent = {
+  '>p': {
+    maxHeight: '500px',
+    transition: 'max-height 400ms cubic-bezier(.42,0,1,1)'
+  }
+}
 export const Card = glamorous.div({
   backgroundColor: 'white',
-  width: 'calc(33% - 30px)',
+  //width: 'calc(33% - 30px)',
   flex: '0 1 auto',
   borderRadius: 2,
   minHeight: 245,
@@ -71,8 +89,50 @@ export const Card = glamorous.div({
     boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'
   },
   '.hide': {
-    display: 'none'
+    opacity: 0,
+    display: 'none',
+    transition: 'opacity 100ms, display 200ms 200ms'
   },
+  '>h2': {
+    fontFamily: '"Overpass",sans-serif',
+    color: '#6C6C6C',
+    textTransform: 'capitalize',
+    fontSize: 18,
+    fontWeight: 600,
+    maxHeight: 0,
+    margin: '0 0 0 25px',
+    padding: 0,
+    opacity: 0,
+    overflow: 'hidden',
+    transition: 'padding 200ms 200ms cubic-bezier(.42,0,1,1) , max-height 200ms 200ms cubic-bezier(.42,0,1,1), opacity 150ms',
+    //
+    '>button': {
+      float: 'right',
+      height: 28,
+      width: 28,
+      opacity: 1,
+      color: '#484848',
+      fontSize: 14,
+      backgroundColor: 'transparent',
+      transition: 'opacity 150ms'
+    }
+  },
+  '>p': {
+    maxHeight: 0,
+    transition: 'max-height 400ms cubic-bezier(.42,0,1,1)',
+  },
+  '.lowerscreen': {...headTitle, ...cardtitle, ...cardContent},
+  '.higherscreen': {
+    position: 'absolute',
+    maxWidth: 400,
+    width: '55vw',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 1,
+    ...headTitle,
+    ...cardtitle,
+    ...cardContent},
   [mediaQueries.min560]: {
     maxWidth: 'none',
     margin: '15px 15px 30px'
@@ -88,6 +148,7 @@ export const Card = glamorous.div({
   }
 });
 
+
 export const Description = glamorous.div({
   color: '#6C6C6C',
   display: 'flex',
@@ -101,28 +162,56 @@ export const Description = glamorous.div({
 })
 
 export const CardTitle = glamorous.p({
+  opacity: 1,
   fontSize: 18,
   fontFamily: '"Overpass", sans-serif',
   margin: 0,
-  textTransform: 'capitalize'
+  textTransform: 'capitalize',
+  transition: '300ms'
 })
 
+const linkCard = {
+  display: 'table',
+  margin: '10px auto 25px',
+  textAlign: 'center',
+  fontFamily: '"Overpass",sans-serif',
+  fontSize: '14px',
+  padding: '2px 15px',
+  fontWeight: 400,
+  textDecoration: 'none',
+  backgroundColor: '#DFB354',
+  color: '#fff',
+  border: '1px solid transparent',
+  ':hover,:active': {
+    color: '#DFB354',
+    border: '1px solid #DFB354',
+    backgroundColor: 'transparent',
+  }
+}
+
 export const CardContent = glamorous.p({
-  height: 0,
   fontFamily: '"Overpass", sans-serif',
   fontSize: 13,
   padding: '0px 15px',
-  transition: '.8s',
   margin: 0,
-  overflow: 'hidden'
+  overflow: 'hidden',
+  color: '#4A4A4A',
+  [mediaQueries.max767]:{
+    fontSize: 13
+  },
+  [mediaQueries.min768]:{
+    fontSize: 14
+  },
+  '>a':{...linkCard},
 })
 
-export const CardBigTitle =glamorous.h2({
-  display: 'block',
-  fontFamily: '"Overpass",sans-serif',
-  color: '#6C6C6C',
-  textTransform: 'capitalize',
-  fontSize: 18,
-  margin: '15px 0 8px 25px',
-  fontWeight: 600
-})
+
+// export const CardBigTitle =glamorous.h2({
+//   display: 'block',
+//   fontFamily: '"Overpass",sans-serif',
+//   color: '#6C6C6C',
+//   textTransform: 'capitalize',
+//   fontSize: 18,
+//   margin: '15px 0 8px 25px',
+//   fontWeight: 600
+// })

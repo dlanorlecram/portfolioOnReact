@@ -14,6 +14,7 @@ class App extends Component {
   constructor(props){
     super(props);
 
+    this.updateShowSkill = this.updateShowSkill.bind(this);
     this.randomKey = this.randomKey.bind(this);
     this.magicNumber = this.randomKey(data_skill.length);
 
@@ -27,7 +28,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-
   /**
    *  Set skill when component did mount
    **/
@@ -41,13 +41,40 @@ class App extends Component {
     })
 
   }
+  /**
+   *   Generatea magic number for random skill to shown
+   **/
 
   randomKey(max){
     let number= Math.floor( Math.random() * max )
     return number;
   }
 
+  updateShowSkill(newSkill) {
+    let newRestSkill = Math.abs(Number(this.state.skill - newSkill));
+    let currentSkill = Number(this.state.skill);
 
+    function timerUpdate() {
+      if(currentSkill < newSkill){
+        if(newRestSkill <= 0){
+          clearInterval(timerUpdate);
+        } else {
+          currentSkill++;
+          this.setState({skill: currentSkill});
+          newRestSkill--;
+        }
+      } else {
+        if(newRestSkill <= 0) {
+          clearInterval(timerUpdate);
+        } else {
+          currentSkill--;
+          this.setState({skill: currentSkill});
+          newRestSkill--;
+        }
+      }
+    }
+    setInterval(timerUpdate.bind(this), 50);
+  }
 
   render() {
 
@@ -56,7 +83,7 @@ class App extends Component {
         <Navbar/>
         <Intro/>
   {/* Container Skill */}
-        <div className='container-skill'>
+        <div id='a-propos' className='container-skill'>
           <p className='text-background'>À propos</p>
           <div>
             <h2>En quelque mots…</h2>
