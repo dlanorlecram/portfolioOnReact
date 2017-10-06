@@ -1,5 +1,5 @@
 import React from 'react';
-//import data_skill from '../../data/index';
+
 
 function Buttons(props){
   function handleActive(e){
@@ -61,18 +61,5 @@ function Buttons(props){
     </div>
   );
 }
-
-/**
- *  Generate a random key to highlight a shuffle skill.
- **/
-
-// function randomKey(max){
-//   let number= Math.floor(Math.random() * max)
-//   return number;
-// }
-//
-// Buttons.defaultProps = {
-//   magicnumber: randomKey(data_skill.length)
-// }
 
 export default Buttons;

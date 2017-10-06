@@ -7,7 +7,7 @@ import {
   HamburgerToggle,
   Ul,
   LogoName
-} from './navbar.js'
+} from './navbar.css.js'
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -18,11 +18,8 @@ export default class Navbar extends React.Component {
   componentDidMount() {
     const $nav = document.querySelector('nav');
     const $a = document.querySelector('nav>div>a')
-    const windowHeight = window.outerHeight
-    console.log($a)
     window.onscroll = () => {
       if(window.innerWidth >= 960){
-        console.log('on')
         const onEventScroll = window.scrollY;
         if(onEventScroll > 100){
           $nav.classList.add('transition-style')

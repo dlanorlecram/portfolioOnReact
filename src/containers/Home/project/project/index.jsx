@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import './project.css';
-import { GalleryProjects, Card, CardContent, Description, CardTitle } from '../project.css.js'
+import {
+  GalleryProjects,
+  Card,
+  CardContent,
+  Description,
+  CardTitle
+} from '../project.css.js'
 
 export default class Projects extends Component {
   componentDidMount(){

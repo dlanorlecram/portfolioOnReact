@@ -1,4 +1,4 @@
-const data_skill=[
+const dataSkill=[
   {
     name: 'HTML/CSS',
     percent: 80
@@ -37,4 +37,4 @@ const data_skill=[
   },
 ]
 
-export default data_skill;
+export default dataSkill;

@@ -1,12 +1,29 @@
-import {mediaQueries} from '../../../data/responsive'
+import { mediaQueries } from '../../../data/responsive'
 import glamorous from 'glamorous';
-
-console.log(mediaQueries)
 
 export const ContainerProject = glamorous.div({
   backgroundColor: 'rgb(255,184,48)',
   padding: '21px 15px'
 })
+
+const groupButtonFilter = {
+  '& .filters': {
+    justifyContent: 'space-between',
+    display: 'flex',
+    '& .button-filter': {
+      color: '#F3C880',
+      fontFamily: '"Overpass", sans-serif',
+      fontSize: 14,
+      padding: '2px 15px',
+      backgroundColor: '#fff',
+      border: 0,
+      borderRadius: 1,
+      '.filter-selected': {
+        backgroundColor: 'rgba(53,56,44,.9)'
+      },
+    }
+  }
+}
 
 export const FilterBlock = glamorous.div({
   width: 245,
@@ -17,11 +34,11 @@ export const FilterBlock = glamorous.div({
     fontSize: 16,
     fontFamily:'"Overpass", sans-serif',
     marginBottom: 5
-  }
+  },
+  ...groupButtonFilter,
 })
 
 //Gallery Projects
-
 export const GalleryProjects = glamorous.div({
   minHeight: '292px',
   position: 'Relative',
@@ -42,7 +59,6 @@ export const GalleryProjects = glamorous.div({
 });
 
 // Car
-
 const headTitle = {
   '> h2': {
       maxHeight: '51px',
@@ -61,14 +77,14 @@ const headTitle = {
 }
 
 const cardtitle = {
-  '>div>.to-hide': {
+  '> div >.to-hide': {
     opacity: 0,
     transition: '200ms'
   }
 }
 
 const cardContent = {
-  '>p': {
+  '> p': {
     maxHeight: '500px',
     transition: 'max-height 400ms cubic-bezier(.42,0,1,1)'
   }

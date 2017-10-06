@@ -78,6 +78,7 @@ ListItemMenu = glamorous.li({
   fontFamily: "'Overpass', sans-serif",
   textTransform: 'uppercase',
   '& a':{
+    textDecoration: 'none',
     transition: 'color 300ms',
     ':hover': {
       color: '#dfB354',

@@ -3,6 +3,15 @@ import Intro from '../src/intro.jpg'
 import { mediaQueries } from '../../../data/responsive'
 import { css } from 'glamor'
 
+export const ContainerIntro = glamorous.div({
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
+  height: '100vh',
+  backgroundColor: '#f9f9f9'
+})
+
 const bounceFirstCircle = css.keyframes({
   '0%, 50%': {transform:'scale(0)'},
   '100%': {transform:'scale(1)'}
@@ -15,15 +24,15 @@ const bounceInnerCircle = css.keyframes({
 });
 
 const translateTitre = css.keyframes({
-  '0%, 50%': {transform:'translateY(25vh)', opacity:0},
-  '65%': { transform:'translateY(-10px)', opacity:.4},
-  '100%': {transform:'translateY(0)',opacity:1}
+  '0%, 50%': { transform:'translateY(25vh)', opacity: 0 },
+  '65%': { transform:'translateY(-10px)', opacity:.4 },
+  '100%': { transform:'translateY(0)',opacity: 1 }
 });
 
 const translateSubtitle = css.keyframes({
-  '0%, 50%': {transform:'translateX(-25vh)', opacity:0},
-  '65%': { transform:'translateX(10px)', opacity:.4},
-  '100%': {transform:'translateX(0)',opacity:1}
+  '0%, 50%': { transform:'translateX(-25vh)', opacity: 0 },
+  '65%': { transform:'translateX(10px)', opacity: .4 },
+  '100%': { transform:'translateX(0)',opacity: 1 }
 });
 
 export const Picture = glamorous.div({

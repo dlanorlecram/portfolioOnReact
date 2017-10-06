@@ -1,5 +1,5 @@
 import React from 'react';
-import { Picture, Title, Subtitle } from './intro.css.js'
+import { Picture, Title, Subtitle, ContainerIntro} from './intro.css.js'
 
 export default class Intro extends React.Component {
 
@@ -9,7 +9,7 @@ export default class Intro extends React.Component {
     const twitter= 'https://twitter.com/Ronald_Marcel_';
 
     return(
-      <div className='intro'>
+      <ContainerIntro>
         <Picture>
           <div></div>
         </Picture>
@@ -19,7 +19,7 @@ export default class Intro extends React.Component {
         <Subtitle>
           Un développeur front-end, diplômé d’un Master I en design produit (DSAA). Vous pouvez me trouver sur <a href={linkedin} target='_blanc'>Linkedin</a>, <a href={twitter} target='_blanc'>Twitter</a> et <a href={github} target='_blanc'>Github</a>.
         </Subtitle>
-      </div>
+      </ContainerIntro>
     )
   }
 }
