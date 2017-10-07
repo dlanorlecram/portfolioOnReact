@@ -3,22 +3,33 @@ import glamorous from 'glamorous';
 
 export const ContainerAbout = glamorous.div({
   position: 'relative',
-  padding: '80px 15px 28px',
-
+  //padding: '80px 15px 28px',
+  padding: '160px 15px 60px',
+  margin: '0 auto',
+  [mediaQueries.max767]: {
+    minWidth: 320,
+    maxWidth: 560,
+  },
+  [mediaQueries.min768]: {
+    minWidth: 561,
+    maxWidth: 900,
+  }
 });
 
 export const BackgroundTitle = glamorous.p({
   color: 'rgba(0, 0, 0, .05)',
   fontWeight: 900,
   position: 'absolute',
-  top: 30,
+  //top: 28,
+  top: 108,
   left: 26,
   margin: 0,
+  fontSize: 64,
   [mediaQueries.max959]: {
-    fontSize: 61,
+    fontSize: 64,
   },
   [mediaQueries.min960]: {
-    fontSize: 61,
+    //fontSize: 61,
   }
 });
 
@@ -29,25 +40,29 @@ const ContentAboutH2 = {
     fontWeight: 400,
     letterSpacing: .4,
     margin: 0,
-    [mediaQueries.max959]: {
-      fontSize: 18,
-    },
-    [mediaQueries.min960]: {
-      fontSize: 18,
-    }
+    fontSize: 20,
+    // [mediaQueries.max959]: {
+    //   fontSize: 20,
+    // },
+    // [mediaQueries.min960]: {
+    //   //fontSize: 18,
+    // }
   }
 }
 
 const ContentAboutP = {
-  '>p': {
+  '& p': {
     fontFamily: '"Overpass", sans-serif',
     color: '#4A4A4A',
     margin: '16px 0 35px 10px',
+    fontSize: 16,
+    fontWeight: 300,
     [mediaQueries.max959]: {
-      fontSize: 13,
+      // fontSize: 16,
+      // fontWeight: 300
     },
-    [mediaQueries.min960]: {
-      fontSize: 13,
+    [mediaQueries.min768]: {
+      maxWidth: '560px'
     },
   }
 }
@@ -59,13 +74,20 @@ export const ContentAbout = glamorous.div({
 
 const controlPercent = {
   '>span': {
-    fontSize: 72,
+
     fontFamily: '"Roboto Mono", monospace',
     fontWeight: 100,
     color: '#DFB354',
     display: 'inline-block',
     width: '50%',
-    paddingLeft: 10
+    paddingLeft: 10,
+    [mediaQueries.max767]:{
+      fontSize: 78,
+    },
+    [mediaQueries.min768]:{
+      fontSize: 90,
+      textAlign: 'right'
+    }
   }
 }
 
@@ -73,14 +95,14 @@ const buttonSkill = {
   '> .button-skill': {
     display: 'list-item',
     fontFamily: '"Overpass", sans-serif',
-    fontSize: 14,
+    fontSize: '18px',
     fontWeight: 400,
     color: 'rgba(74, 74, 74, 1)',
     backgroundColor: 'transparent',
     margin: '15px 0 15px auto',
     '.button-selected': {
       color: '#DFB354',
-      fontSize: 18,
+      fontSize: '22px',
       fontWeight: 900
     }
   }

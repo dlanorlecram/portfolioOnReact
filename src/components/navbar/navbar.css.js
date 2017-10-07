@@ -27,7 +27,7 @@ export const Nav = glamorous.nav({
     '> div:last-child':{
       display: 'block'
     },
-    '> div:first-child a': {
+    '& div:first-child>a': {
       display: 'none'
     }
   },
@@ -69,6 +69,15 @@ MenuResponsive = glamorous.div({
         transition: 'transform 450ms cubic-bezier(.42,0,1,1),opacity 700ms cubic-bezier(0,0,.58,1)'
       },
     }
+  },
+  [mediaQueries.min960]: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: '100%',
+    alignItems: 'center',
+    maxWidth: '1024px',
+    margin: '0 auto',
+    padding: '0 20px'
   }
 }),
 
@@ -161,16 +170,13 @@ HamburgerToggle = glamorous.div({
 
 export const LogoName = glamorous.div({
   fontFamily: '"Overpass",sans-serif',
-  fontSize: 18, position: 'absolute',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  marginLeft: 50,
-  '> .hidden':{
+  fontSize: 18,
+  '& .hidden':{
     color: '#fff',
     opacity: 0,
     transition: 'opacity 300ms'
   },
-  '> a': {
+  '>a': {
     textDecoration: 'none',
     opacity: 1,
     transition: 'opacity 300ms'
@@ -179,7 +185,7 @@ export const LogoName = glamorous.div({
 
 export const Ul = glamorous.ul({
   padding: 0,
-  margin: 'auto',
+  margin: 0,
   [mediaQueries.max959]: {
     top: '50%',
     left: '50%',

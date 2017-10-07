@@ -18,7 +18,7 @@ export default class Projects extends Component {
 
     window.addEventListener('resize', function(){
       let cards = document.querySelectorAll('.card');
-
+      console.log(cards)
       const changeClass = (oldClassName, newClassName) => {
         cards.forEach((el) => {
           if(el.classList.contains(oldClassName)){

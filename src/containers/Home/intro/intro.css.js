@@ -67,7 +67,7 @@ export const Title = glamorous.h1({
   marginTop: 29,
   minHeight: 74,
   animation: `${translateTitre} 2.2s`,
-  [mediaQueries.max959]:{fontSize: 24},
+  [mediaQueries.max959]:{fontSize: 26},
   [mediaQueries.min960]:{fontSize: 35}
 })
 
@@ -81,7 +81,7 @@ export const Subtitle = glamorous.p({
   margin: '29px 15px 0',
   minHeight: 100,
   wordWrap: 'break-word',
-  [mediaQueries.max959]:{fontSize: 16},
+  [mediaQueries.max959]:{fontSize: 18},
   [mediaQueries.min960]:{fontSize: 20},
   animation: `${translateSubtitle} 3s`,
   '> a': {

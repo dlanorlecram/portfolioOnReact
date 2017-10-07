@@ -17,7 +17,7 @@ export default class Navbar extends React.Component {
 
   componentDidMount() {
     const $nav = document.querySelector('nav');
-    const $a = document.querySelector('nav>div>a')
+    const $a = document.querySelector('nav>div>div>a')
     window.onscroll = () => {
       if(window.innerWidth >= 960){
         const onEventScroll = window.scrollY;
@@ -34,7 +34,7 @@ export default class Navbar extends React.Component {
 
   handleToggle(e) {
     const $el = e.currentTarget;
-    const $sibling = $el.parentNode.childNodes[1]
+    const $sibling = $el.parentNode.firstChild
     $el.firstChild.classList.toggle('animated')
     let label = $el.firstChild.classList.contains('animated') ? true : false
     this.setState((prevState) => ({label}))
@@ -57,10 +57,11 @@ export default class Navbar extends React.Component {
 
     return (
       <Nav>
-        <LogoName>
-          <a href='/' className='hidden'>Ronald Marcel</a>
-        </LogoName>
+
         <MenuResponsive>
+          <LogoName>
+            <a href='/' className='hidden'>Ronald Marcel</a>
+          </LogoName>
           <Ul id='menu'>
             {listItems}
           </Ul>
