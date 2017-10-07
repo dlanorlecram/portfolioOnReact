@@ -9,7 +9,6 @@ import {
 
 export default class Projects extends Component {
   componentDidMount(){
-    this.screenWidth = window.screen.width
 
     /*
     *  Sur l'évènement resize,
@@ -27,7 +26,7 @@ export default class Projects extends Component {
         })
       }
 
-      if(window.screen.width >= 767){
+      if(window.innerWidth >= 767){
         changeClass('lowerscreen', 'higherscreen')
       }else{
         changeClass('higherscreen', 'lowerscreen')
@@ -66,7 +65,7 @@ export default class Projects extends Component {
   *  idem >= 768px = [Ipad, Fullwindow]
   **/
 
-    if(window.screen.width <= 767){
+    if(window.innerWidth <= 767){
       addClass('lowerscreen')
     }else{
       addClass('higherscreen')
