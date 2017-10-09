@@ -19,9 +19,9 @@ export default class Navbar extends React.Component {
     const $nav = document.querySelector('nav');
     const $a = document.querySelector('nav>div>div>a')
     window.onscroll = () => {
+      const onEventScroll = window.scrollY;
       if(window.innerWidth >= 960){
-        const onEventScroll = window.scrollY;
-        if(onEventScroll > 100){
+        if(onEventScroll >= window.innerHeight/2){
           $nav.classList.add('transition-style')
           $a.classList.remove('hidden')
         }else{
@@ -57,7 +57,6 @@ export default class Navbar extends React.Component {
 
     return (
       <Nav>
-
         <MenuResponsive>
           <LogoName>
             <a href='/' className='hidden'>Ronald Marcel</a>
@@ -66,7 +65,6 @@ export default class Navbar extends React.Component {
             {listItems}
           </Ul>
         </MenuResponsive>
-
         <HamburgerToggle style={{
             color: ((e)=>console.log(e))
           }} onClick={(e) => this.handleToggle(e)}>

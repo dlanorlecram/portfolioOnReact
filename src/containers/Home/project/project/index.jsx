@@ -4,7 +4,10 @@ import {
   Card,
   CardContent,
   Description,
-  CardTitle
+  CardTitle,
+  Picture,
+  SubCardContent,
+  BottomLink
 } from '../project.css.js'
 
 export default class Projects extends Component {
@@ -18,18 +21,15 @@ export default class Projects extends Component {
     window.addEventListener('resize', function(){
       let cards = document.querySelectorAll('.card');
       console.log(cards)
-      const changeClass = (oldClassName, newClassName) => {
+      const removeClass = (oldClassName) => {
         cards.forEach((el) => {
           if(el.classList.contains(oldClassName)){
-            el.classList.replace(oldClassName, newClassName)
+            el.classList.remove(oldClassName)
           }
         })
       }
-
       if(window.innerWidth >= 767){
-        changeClass('lowerscreen', 'higherscreen')
-      }else{
-        changeClass('higherscreen', 'lowerscreen')
+        removeClass('lowerscreen')
       }
     })
   }
@@ -39,15 +39,15 @@ export default class Projects extends Component {
 *  But ajouter accéder au contenu + lien vers projet.
 **/
 
-  handleCardClick(e){
+  handleCardClick(el){
     //e.stopPropagation();
     //e.currentTarget.preventDefault();
-
-    let $el= e.currentTarget;
+    console.log(el.currentTarget.parentNode);
+    let $el= el.currentTarget.parentNode;
     const $node = document.querySelectorAll('.card');
 
     function addClass(classname){
-      if(!($el.classList.contains(classname)) && e.target.tagName !== 'BUTTON'){
+      if(!($el.parentNode.classList.contains(classname))){
         $node.forEach(node => {
           console.log(node.classList)
           if(node.classList.contains(classname)){
@@ -67,7 +67,8 @@ export default class Projects extends Component {
 
     if(window.innerWidth <= 767){
       addClass('lowerscreen')
-    }else{
+    }
+    else{
       addClass('higherscreen')
     }
 
@@ -86,7 +87,6 @@ export default class Projects extends Component {
     const nodeProjects = this.props.dataProject.map( (obj, key) =>
     <Card
       key={ key }
-      onClick={ (e) => this.handleCardClick(e) }
       data-cat={ obj.cat }
       className='card'>
       <h2>
@@ -101,9 +101,9 @@ export default class Projects extends Component {
           </i>
         </button>
       </h2>
-      <picture>
+      <Picture onClick={ (e) => this.handleCardClick(e) }>
         <img alt='name of project' src='http://via.placeholder.com/400x300/F3C880/fff'/>
-      </picture>
+      </Picture>
       <Description>
         <CardTitle className='to-hide'>{ obj.title }</CardTitle>
         <div>
@@ -111,12 +111,35 @@ export default class Projects extends Component {
             <i key={ key } className={ 'devicon-'+tech } ></i>)
           }
         </div>
-        </Description>
-        <CardContent>
-          The Realtime Database is a NoSQL database and as such has different optimizations and functionality compared to a relational database. The Realtime Database API is designed to only allow operations that can be executed quickly. This enables you to build a great realtime experience that can serve millions of users without compromising on responsiveness.
-          <a href='#'>Voir</a>
-        </CardContent>
-      </Card>
+      </Description>
+      <CardContent>
+        { obj.content }
+        { obj.depot !== undefined ? <a href={obj.depot} >
+          <i className='icon ion-network'></i>
+        </a> : null }
+        { obj.url !== undefined ? <a href={obj.url} >
+          <i className='icon ion-link'></i>
+        </a> : null }
+      </CardContent>
+      <SubCardContent>
+        <div>
+          <span>{ obj.title }</span>
+          <button onClick={ (e) => this.handleCloseClick(e) }><i className='icon ion-close-round'></i></button>
+        </div>
+        <div>
+          <p>{ obj.content }</p>
+          <BottomLink>
+            { obj.depot !== undefined ?
+              <a href={obj.depot} >
+              <i className='icon ion-network'></i>
+              </a> : null }
+            { obj.url !== undefined ? <a href={obj.url} >
+              <i className='icon ion-link'></i>
+            </a> : null }
+          </BottomLink>
+        </div>
+      </SubCardContent>
+    </Card>
     );
 
     return(

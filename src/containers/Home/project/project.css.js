@@ -1,9 +1,20 @@
 import { mediaQueries } from '../../../data/responsive'
 import glamorous from 'glamorous';
 
+/*
+*   Effect
+**/
+
+const shadowEffect = {
+  boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'
+}
+
+/*
+**/
+
 export const ContainerProject = glamorous.div({
   backgroundColor: 'rgb(255,184,48)',
-  padding: '21px 15px'
+  padding: '60px 15px'
 })
 
 const groupButtonFilter = {
@@ -51,28 +62,35 @@ export const GalleryProjects = glamorous.div({
     maxWidth: 375
   },
   [mediaQueries.int768to1169]: {
-    maxWidth: 900
+    maxWidth: 960
   },
   [mediaQueries.min1170]: {
-    maxWidth: 2000
+    maxWidth: 1024
   }
 });
 
-// Car
+const styleButtonClose = {
+  '>button': {
+    backgroundColor: 'transparent',
+    fontSize:12,
+    lineHeight:'28px',
+    cursor: 'pointer',
+    color: '#4A4A4A',
+    float: 'right',
+    fontFamily: '"Overpass", sans-serif',
+    ' i': {
+      pointerEvents: 'none',
+    }
+  }
+}
+
 const headTitle = {
   '> h2': {
       maxHeight: '51px',
       opacity: 1,
       padding: '15px 25px 8px 0',
       transition: 'max-height 100ms cubic-bezier(.42,0,1,1), opacity 250ms 250ms',
-      '>button':{
-        fontSize:12,
-        lineHeight:'28px',
-        cursor: 'pointer',
-        color: '#4A4A4A',
-        float: 'right',
-        fontFamily: '"Overpass", sans-serif',
-      }
+      ...styleButtonClose
   }
 }
 
@@ -89,7 +107,64 @@ const cardContent = {
     transition: 'max-height 400ms cubic-bezier(.42,0,1,1)'
   }
 }
+
+const higherScreen = {
+  '.higherscreen': {
+    ...shadowEffect,
+    transition: 'box-shadow 500ms',
+    '> div:last-child':{
+      bottom: 0,
+      transition: 'bottom 400ms'
+    }
+  },
+}
+
+const SubCardContenTitle = {
+  ' span': {
+    fontSize: 18,
+    fontFamily: '"Overpass", sans-serif',
+    margin: 0,
+    textTransform: 'capitalize',
+  }
+}
+
+const SubCardContenHeader = {
+  '> div:first-child':{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    color: '#6C6C6C',
+    margin: '15px  0px',
+    ...SubCardContenTitle,
+    ...styleButtonClose
+  }
+}
+
+
+export const SubCardContent = glamorous.div({
+  position: 'absolute',
+  height: '100%',
+  //bottom: 0,
+  width: '100%',
+  bottom: '-100%',
+  zIndex: 3,
+  fontFamily: '"Overpass", sans-serif',
+  fontSize: 14,
+  lineHeight: '19px',
+  color: '#4A4A4A',
+  backgroundColor: '#fff',
+  //transform: 'translateY(100%)',
+  padding: '0 15px',
+  transition: 'bottom 300ms',
+  ...SubCardContenHeader,
+})
+
+export const Picture = glamorous.picture({
+  cursor: 'pointer'
+})
+
 export const Card = glamorous.div({
+  position: 'relative',
   backgroundColor: 'white',
   //width: 'calc(33% - 30px)',
   flex: '0 1 auto',
@@ -99,10 +174,9 @@ export const Card = glamorous.div({
   overflow: 'hidden',
   width: 'auto',
   maxWidth: 375,
-  cursor: 'pointer',
   transition: '.9s, box-shadow .5s, opacity .75s',
   ':hover': {
-    boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'
+    ...shadowEffect
   },
   '.hide': {
     opacity: 0,
@@ -138,23 +212,13 @@ export const Card = glamorous.div({
     transition: 'max-height 400ms cubic-bezier(.42,0,1,1)',
   },
   '.lowerscreen': {...headTitle, ...cardtitle, ...cardContent},
-  '.higherscreen': {
-    position: 'absolute',
-    maxWidth: 400,
-    width: '55vw',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    zIndex: 1,
-    ...headTitle,
-    ...cardtitle,
-    ...cardContent},
+  ...higherScreen,
   [mediaQueries.min560]: {
     maxWidth: 'none',
     margin: '15px 15px 30px'
   },
   [mediaQueries.min1170]: {
-    width: 'calc(25% - 30px)'
+    width: 'calc(33.33% - 30px)'
   },
   [mediaQueries.int768to960]: {
     width: 'calc(50% - 30px)'
@@ -221,6 +285,21 @@ export const CardContent = glamorous.p({
   '>a':{...linkCard},
 })
 
+export const BottomLink = glamorous.div({
+  bottom: 0,
+  position: 'absolute',
+  right: 0,
+  left: 0,
+  transform: 'translateY(-100%)',
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  ' a': {
+    textDecoration: 'none',
+    fontSize: 24,
+    color: '#949494',
+    ':hover': {color: '#DFB354'}
+  }
+})
 
 // export const CardBigTitle =glamorous.h2({
 //   display: 'block',

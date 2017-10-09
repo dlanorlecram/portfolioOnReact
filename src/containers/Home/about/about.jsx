@@ -46,7 +46,7 @@ export default class About extends Component{
   render() {
 
     return(
-      <ContainerAbout id='a-propos'>
+      <ContainerAbout data-anchor='about'>
         <BackgroundTitle>À propos</BackgroundTitle>
         <ContentAbout>
           <h2>En quelque mots…</h2>

@@ -9,7 +9,7 @@ export default class Intro extends React.Component {
     const twitter= 'https://twitter.com/Ronald_Marcel_';
 
     return(
-      <ContainerIntro>
+      <ContainerIntro data-anchor='top'>
         <Picture>
           <div></div>
         </Picture>
@@ -17,7 +17,7 @@ export default class Intro extends React.Component {
           Salut, je m’appelle<br/>Ronald Marcel!
         </Title>
         <Subtitle>
-          Un développeur front-end, diplômé d’un Master I en design produit (DSAA). Vous pouvez me trouver sur <a href={linkedin} target='_blanc'>Linkedin</a>, <a href={twitter} target='_blanc'>Twitter</a> et <a href={github} target='_blanc'>Github</a>.
+          Développeur front-end, diplômé d’un Master I en design produit (DSAA). Vous pouvez me trouver sur <a href={ linkedin } target='_blanc'>Linkedin</a>, <a href={ twitter } target='_blanc'>Twitter</a> et <a href={ github } target='_blanc'>Github</a>.
         </Subtitle>
       </ContainerIntro>
     )

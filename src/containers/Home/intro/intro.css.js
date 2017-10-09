@@ -9,7 +9,8 @@ export const ContainerIntro = glamorous.div({
   flexDirection: 'column',
   alignItems: 'center',
   height: '100vh',
-  backgroundColor: '#f9f9f9'
+  backgroundColor: '#fafaf0'
+  // backgroundColor: '#f9f9f9'
 })
 
 const bounceFirstCircle = css.keyframes({
@@ -37,8 +38,17 @@ const translateSubtitle = css.keyframes({
 
 export const Picture = glamorous.div({
   backgroundColor: '#ffffff',
-  height: 145,
-  width: 145,
+  // height: 145,
+  // width: 145,
+  [mediaQueries.min768]:{
+    height: 190,
+    width: 190,
+  },
+  [mediaQueries.max767]:{
+    height: 145,
+    width: 145,
+  },
+  boxShadow: '0 0 7px rgba(0, 0, 0, 0.3)',
   borderRadius: '100%',
   padding: 6,
   animationIterationCount: 1,

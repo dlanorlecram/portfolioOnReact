@@ -1,7 +1,10 @@
 import React from 'react';
 import Projects from './project/index';
 import Buttons from '../../../components/button/buttons';
-import { FilterBlock, ContainerProject } from './project.css.js';
+import {
+  FilterBlock,
+  ContainerProject
+} from './project.css.js';
 
 export default class Project extends React.Component {
 
