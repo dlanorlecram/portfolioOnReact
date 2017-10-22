@@ -1,7 +1,7 @@
 import { mediaQueries } from '../../../data/responsive'
 import glamorous from 'glamorous';
 
-export const ContainerAbout = glamorous.div({
+export const ContainerAbout = glamorous.section({
   position: 'relative',
   //padding: '80px 15px 28px',
   padding: '160px 15px 60px',
@@ -116,4 +116,79 @@ export const ControlSkill = glamorous.div({
     verticalAlign: 'middle',
     ...buttonSkill,
   }
+})
+
+/*
+*  V2
+**/
+
+const skillTitle = {
+  ' h3': {
+    color: 'rgba(0, 0, 0,.57)',
+    fontWeight: 400,
+    fontSize: 20,
+    letterSpacing: 0.4
+  }
+}
+
+const groupSkill = {
+  ' ul': {
+    padding: 0,
+    listStyle: 'none',
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    margin: '0 10px',
+    ' li':{
+      margin: '10px 0',
+      flex: '1 0 auto',
+      maxWidth: 345,
+      width: '100%'
+    }
+  }
+}
+
+const ItemSkill = {
+  ' p': {
+    margin: '0 0 10px',
+    fontWeight: 400,
+    fontSize: 14
+  },
+  ' p~div': {
+    height: 4,
+    width: '100%',
+    maxWidth: 345,
+    backgroundColor: 'rgba(157, 148, 146,.2)',
+  },
+  ' p~div>div': {
+    backgroundColor: '#fecc0d',
+    width: '51%',
+    height: '100%',
+    verticalAlign: 'top',
+    display: 'inline-block',
+    transition: 'width 400ms 400ms',
+    '.disable': {
+      width: '0!important'
+    }
+  },
+  ' .jauge-end': {
+    ':before': {
+      content:'""',
+      backgroundColor: '#fecc0d',
+      position: 'absolute',
+      height: 8,
+      width: 8,
+      borderRadius: '100%',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  }
+}
+
+export const SkillContainer = glamorous.div({
+    fontFamily: '"Overpass", sans-serif',
+    ...skillTitle,
+    ...groupSkill,
+    ...ItemSkill
 })

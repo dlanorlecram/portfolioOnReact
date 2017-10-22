@@ -1,16 +1,29 @@
 import glamorous from 'glamorous';
 import Intro from '../src/intro.jpg'
+import LowBack from '../src/low_polygon.svg'
+import bottomIntro from '../src/bottom-intro.png'
 import { mediaQueries } from '../../../data/responsive'
 import { css } from 'glamor'
 
-export const ContainerIntro = glamorous.div({
+export const ContainerIntro = glamorous.section({
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
   alignItems: 'center',
   height: '100vh',
-  backgroundColor: '#fafaf0'
+  //background: 'linear-gradient(#FDE897,#FDE897,#FFF)'
+  //backgroundColor: '#fafaf0',
+  backgroundColor: '#FECD0B',
+  // backgroundColor: '#F7C76A',
+  // backgroundColor: '#F9CA6B',
+  //backgroundColor: '#E16D53',
+  //backgroundImage: `url(${LowBack})`
   // backgroundColor: '#f9f9f9'
+  ':after': {
+    content: '""',
+    //backgroundImage: `url(${bottomIntro})`,
+    width: '100%'
+  }
 })
 
 const bounceFirstCircle = css.keyframes({
@@ -69,8 +82,8 @@ export const Picture = glamorous.div({
 
 export const Title = glamorous.h1({
   fontFamily: '"Overpass", sans-serif',
-  fontWeight: 400,
-  color: '#4A4A4A',
+  fontWeight: 900,
+  color: '#263645',
   textAlign: 'center',
   whiteSpace: 'pre',
   margin: 0,
@@ -84,9 +97,9 @@ export const Title = glamorous.h1({
 export const Subtitle = glamorous.p({
   fontFamily: '"Overpass", sans-serif',
   fontWeight: 400,
-  fontStyle: 'italic',
+  //fontStyle: 'italic',
   textAlign: 'center',
-  color: 'rgba(0, 0, 0, .44)',
+  color: '#263645',
   maxWidth: 410,
   margin: '29px 15px 0',
   minHeight: 100,
@@ -95,9 +108,22 @@ export const Subtitle = glamorous.p({
   [mediaQueries.min960]:{fontSize: 20},
   animation: `${translateSubtitle} 3s`,
   '> a': {
-  color: '#dfB354',
-  fontWeight: 600,
-  textDecoration: 'none',
-  fontStyle: 'normal'
+    color: '#fff',
+    position: 'relative',
+    // color: '#2C3590',
+    fontWeight: 600,
+    textDecoration: 'none',
+    fontStyle: 'normal',
+    ':hover': {
+      color: '#fff',
+      ':after': {
+        content: '""',
+        width: '100%',
+        borderBottom: '1px dotted #fff',
+        position: 'absolute',
+        left: 0,
+        bottom: '-1px',
+      }
+    }
   }
 })

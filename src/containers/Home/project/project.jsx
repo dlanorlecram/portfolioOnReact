@@ -35,7 +35,7 @@ export default class Project extends React.Component {
 
   render() {
     return(
-      <ContainerProject id='projet'>
+      <ContainerProject id='project' className='element'>
         <FilterBlock>
           <p>
             Filtre:

@@ -102,7 +102,7 @@ export default class Projects extends Component {
         </button>
       </h2>
       <Picture onClick={ (e) => this.handleCardClick(e) }>
-        <img alt='name of project' src='http://via.placeholder.com/400x300/F3C880/fff'/>
+        <img alt='name of project' src={obj.img? obj.img : 'http://via.placeholder.com/400x300/FECD0B/fff'}/>
       </Picture>
       <Description>
         <CardTitle className='to-hide'>{ obj.title }</CardTitle>
@@ -114,10 +114,10 @@ export default class Projects extends Component {
       </Description>
       <CardContent>
         { obj.content }
-        { obj.depot !== undefined ? <a href={obj.depot} >
+        { obj.depot !== undefined ? <a href={obj.depot} target='_blank'>
           <i className='icon ion-network'></i>
         </a> : null }
-        { obj.url !== undefined ? <a href={obj.url} >
+        { obj.url !== undefined ? <a href={obj.url} target='_blank'>
           <i className='icon ion-link'></i>
         </a> : null }
       </CardContent>
@@ -130,10 +130,10 @@ export default class Projects extends Component {
           <p>{ obj.content }</p>
           <BottomLink>
             { obj.depot !== undefined ?
-              <a href={obj.depot} >
+              <a href={obj.depot} target='_blank'>
               <i className='icon ion-network'></i>
               </a> : null }
-            { obj.url !== undefined ? <a href={obj.url} >
+            { obj.url !== undefined ? <a href={obj.url} target='_blank'>
               <i className='icon ion-link'></i>
             </a> : null }
           </BottomLink>

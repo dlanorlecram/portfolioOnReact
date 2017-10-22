@@ -3,9 +3,11 @@ import { mediaQueries } from './../../data/responsive'
 
 const NavtransitionStyle = {
   '.transition-style': {
-    height: 50,
+    height: 59,
+    //backgroundColor: '#F9A41B',
     backgroundColor: '#FFC530',
-    '& a':{
+    // backgroundColor: '#F7C76A',
+    ' div > button, div > a':{
       color: '#fff',
       ':hover': {
         color: 'rgba(53,56,44,.9)',
@@ -39,8 +41,8 @@ export const Nav = glamorous.nav({
     backgroundColor:'transparent',
     transition: 'height 400ms, background-color 500ms',
     ...NavtransitionStyle,
-    '> div:first-child a': {
-      fontWeight: 600
+    '> div:first-child>a': {
+      fontWeight: 700
     },
     '> div:nth-child(n+2)': {
       position: 'absolute',
@@ -85,20 +87,29 @@ ListItemMenu = glamorous.li({
   display: 'inline-block',
   margin: '0 10px',
   fontFamily: "'Overpass', sans-serif",
-  textTransform: 'uppercase',
-  '& a':{
+  '> .current-position': {
+    color: '#fff',
+    transition: 'color 300ms 300ms'
+  },
+  ' button, a':{
+    textTransform: 'uppercase',
     textDecoration: 'none',
-    transition: 'color 300ms',
+    transition: 'color 200ms',
     ':hover': {
-      color: '#dfB354',
+      color: '#fff',
       transition: 'color 300ms'
     }
   },
   [mediaQueries.min960]: {
-    fontSize: 14,
-    fontWeight: 600,
-    '& a': {
-      color: '#6C6C6C',
+    ' button': {
+      backgroundColor: 'transparent',
+      cursor: 'pointer'
+    },
+    ' button, a': {
+      fontSize: 14,
+      fontWeight: 900,
+      // color: '#6C6C6C',
+      color: '#F8E3BB',
     }
 
   },
@@ -108,8 +119,8 @@ ListItemMenu = glamorous.li({
     transform: 'translateY(-20px)',
     opacity: 0,
     transition: 'transform 300ms 150ms cubic-bezier(.15,.99,.32,1), opacity 300ms cubic-bezier(0,0,.58,1)',
-    '& a':{
-      color: '#fff'
+    '& button, a':{
+      color: '#F8E3BB',
     }
   }
 });

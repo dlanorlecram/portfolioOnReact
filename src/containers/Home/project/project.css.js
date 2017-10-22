@@ -12,9 +12,11 @@ const shadowEffect = {
 /*
 **/
 
-export const ContainerProject = glamorous.div({
-  backgroundColor: 'rgb(255,184,48)',
-  padding: '60px 15px'
+export const ContainerProject = glamorous.section({
+  backgroundColor: '#86BCE4',
+  // backgroundColor: '#2C3590',
+  // backgroundColor: 'rgb(255,184,48)',
+  padding: '100px 15px 60px'
 })
 
 const groupButtonFilter = {
@@ -22,15 +24,21 @@ const groupButtonFilter = {
     justifyContent: 'space-between',
     display: 'flex',
     '& .button-filter': {
-      color: '#F3C880',
+      // color: '#F3C880',
+      color: '#FECD0B',
       fontFamily: '"Overpass", sans-serif',
       fontSize: 14,
       padding: '2px 15px',
+      //backgroundColor: '#69B7CE',
       backgroundColor: '#fff',
+      fontWeight:700,
       border: 0,
       borderRadius: 1,
       '.filter-selected': {
-        backgroundColor: 'rgba(53,56,44,.9)'
+        backgroundColor: '#F9A41B',
+        fontWeight:900,
+        color: '#fff'
+        // backgroundColor: 'rgba(53,56,44,.9)'
       },
     }
   }
@@ -41,7 +49,9 @@ export const FilterBlock = glamorous.div({
   margin: '0 auto',
   '> p' : {
     margin: 0,
-    color: '#7e6130',
+    color: '#fff',
+    fontWeight: 700,
+    // color: '#7e6130',
     fontSize: 16,
     fontFamily:'"Overpass", sans-serif',
     marginBottom: 5
