@@ -1,16 +1,19 @@
 import glamorous from 'glamorous';
 
-export const Fter = glamorous.footer({
-  height: 70,
+export const FooterTag = glamorous.footer({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   width: '100%',
   backgroundColor: '#F9F9F9',
-  position: 'relative'
+  position: 'relative',
+  padding: '20px 15px'
 })
 
 const innerFooterP = {
   '> p': {
     color: '#949494',
-    fontSize: 11,
+    fontSize: 12,
     fontFamily: '"Overpass", sans-serif',
     fontWeight: 400,
     textAlign: 'center',
@@ -25,7 +28,7 @@ const innerFooterP = {
 
 const InnerFooterUl = {
   '> ul': {
-    margin: '10px 0 0',
+    margin: '20px 0 0',
     padding: 0,
     display: 'inline-block',
     '> li': {
@@ -35,12 +38,12 @@ const InnerFooterUl = {
   }
 }
 
-export const InnerFooter = glamorous.footer({
+export const InnerFooter = glamorous.div({
   textAlign: 'center',
-  position: 'absolute',
-  top: '50%',
-  transform: 'translate(-50%, -50%)',
-  left: '50%',
+  // position: 'absolute',
+  // top: '50%',
+  // transform: 'translate(-50%, -50%)',
+  // left: '50%',
   display: 'table',
   ...innerFooterP,
   ...InnerFooterUl,

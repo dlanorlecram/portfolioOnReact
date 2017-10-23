@@ -3,7 +3,8 @@ import Projects from './project/index';
 import Buttons from '../../../components/button/buttons';
 import {
   FilterBlock,
-  ContainerProject
+  ContainerProject,
+  //TitleGallery
 } from './project.css.js';
 
 export default class Project extends React.Component {
@@ -36,7 +37,11 @@ export default class Project extends React.Component {
   render() {
     return(
       <ContainerProject id='project' className='element'>
-        <FilterBlock>
+        {/*<TitleGallery>
+          <h2>Créations</h2>
+          <p>Voici quelques exemples de mes travaux personnels et professionnelles</p>
+        </TitleGallery>*/}
+        <FilterBlock style={{display:'none'}}>
           <p>
             Filtre:
           </p>

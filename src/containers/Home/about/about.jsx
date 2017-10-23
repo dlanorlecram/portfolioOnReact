@@ -30,14 +30,14 @@ export default class About extends Component{
       const target = document.querySelector('#limit-scroll')
       const to = target.offsetTop + target.offsetParent.offsetTop/2 - 69
       const from = window.pageYOffset || document.documentElement.scrollTop
-      console.log(from+'  :  '+ to)
-      console.log(to - from)
+      // console.log(from+'  :  '+ to)
+      // console.log(to - from)
       const tagNode = document.querySelectorAll(selector)
       tagNode.forEach((el, index) => {
         if( el.dataset[dataPercentEnable] && from >= to){
           el.classList.remove('disable')
           el.dataset[dataPercentEnable]=true
-          console.log(el.dataset[dataPercentEnable])
+          // console.log(el.dataset[dataPercentEnable])
         }
       })
     }
@@ -84,7 +84,7 @@ export default class About extends Component{
           </div>
         </li>
     )
-    console.log(ListItemSkill)
+    // console.log(ListItemSkill)
 
     return(
       <ContainerAbout id='about' className="element">

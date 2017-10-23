@@ -1,7 +1,5 @@
 import glamorous from 'glamorous';
 import Intro from '../src/intro.jpg'
-import LowBack from '../src/low_polygon.svg'
-import bottomIntro from '../src/bottom-intro.png'
 import { mediaQueries } from '../../../data/responsive'
 import { css } from 'glamor'
 

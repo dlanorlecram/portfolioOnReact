@@ -311,6 +311,23 @@ export const BottomLink = glamorous.div({
   }
 })
 
+export const BottomLinkMobile = glamorous.span({
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  margin: '10px 0 15px',
+  ' a': {
+    textDecoration: 'none',
+    fontSize: 24,
+    color: '#949494',
+    ':hover': {color: '#DFB354'}
+  }
+})
+
+export const TitleGallery = glamorous.div({
+  width: 1024,
+  margin: '0 auto'
+})
+
 // export const CardBigTitle =glamorous.h2({
 //   display: 'block',
 //   fontFamily: '"Overpass",sans-serif',

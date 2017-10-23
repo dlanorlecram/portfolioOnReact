@@ -7,7 +7,8 @@ import {
   CardTitle,
   Picture,
   SubCardContent,
-  BottomLink
+  BottomLink,
+  BottomLinkMobile
 } from '../project.css.js'
 
 export default class Projects extends Component {
@@ -20,7 +21,7 @@ export default class Projects extends Component {
 
     window.addEventListener('resize', function(){
       let cards = document.querySelectorAll('.card');
-      console.log(cards)
+      //console.log(cards)
       const removeClass = (oldClassName) => {
         cards.forEach((el) => {
           if(el.classList.contains(oldClassName)){
@@ -40,18 +41,13 @@ export default class Projects extends Component {
 **/
 
   handleCardClick(el){
-    //e.stopPropagation();
-    //e.currentTarget.preventDefault();
-    console.log(el.currentTarget.parentNode);
     let $el= el.currentTarget.parentNode;
     const $node = document.querySelectorAll('.card');
 
     function addClass(classname){
       if(!($el.parentNode.classList.contains(classname))){
         $node.forEach(node => {
-          console.log(node.classList)
           if(node.classList.contains(classname)){
-            console.log('j\'nlève')
             node.classList.remove(classname)
           }
         })
@@ -76,10 +72,8 @@ export default class Projects extends Component {
 
   handleCloseClick(e){
     let el = e.currentTarget.closest('.card').classList.contains('lowerscreen') ? 'lowerscreen' : 'higherscreen'
-    console.log(el)
     let ze = e.currentTarget.closest('.card');
     ze.classList.remove(el)
-    console.log(ze.classList)
   }
 
   render(){
@@ -114,12 +108,14 @@ export default class Projects extends Component {
       </Description>
       <CardContent>
         { obj.content }
-        { obj.depot !== undefined ? <a href={obj.depot} target='_blank'>
-          <i className='icon ion-network'></i>
-        </a> : null }
-        { obj.url !== undefined ? <a href={obj.url} target='_blank'>
-          <i className='icon ion-link'></i>
-        </a> : null }
+        <BottomLinkMobile style={{textAlign: 'center',}}>
+          { obj.depot !== undefined ? <a href={obj.depot} target='_blank'>
+            <i className='icon ion-network'></i>
+          </a> : null }
+          { obj.url !== undefined ? <a href={obj.url} target='_blank'>
+            <i className='icon ion-link'></i>
+          </a> : null }
+        </BottomLinkMobile>
       </CardContent>
       <SubCardContent>
         <div>

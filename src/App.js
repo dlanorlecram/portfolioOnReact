@@ -23,7 +23,6 @@ class App extends Component {
     let dbRefProject = database.ref('projects')
     dbRefProject.on("value", snapshot => {
       let projects = snapshot.val()
-      console.log(projects);
       this.setState({projects})
     })
 

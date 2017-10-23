@@ -11,11 +11,8 @@ import {
   LogoName
 } from './navbar.css.js'
 
-const Link       = Scroll.Link;
-const Element    = Scroll.Element;
 var Helpers      = Scroll.Helpers;
 const scrollSpy  = Scroll.scrollSpy;
-const Events     = Scroll.Events;
 
 class Button extends React.Component {
   render() {
@@ -26,9 +23,7 @@ class Button extends React.Component {
    )
   }
 }
-
 const ButtonTag = Helpers.Scroll(Button)
-//export {ButtonTag}
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -37,13 +32,6 @@ export default class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    Events.scrollEvent.register('begin', function() {
-      console.log("begin", arguments);
-    });
-
-    Events.scrollEvent.register('end', function() {
-      console.log("end", arguments);
-    });
 
     scrollSpy.update();
 
@@ -74,28 +62,11 @@ export default class Navbar extends React.Component {
     $el.firstChild.classList.toggle('animated')
     let label = $el.firstChild.classList.contains('animated') ? true : false
     this.setState((prevState) => ({label}))
-    console.log(label)
     $sibling.classList.toggle('expanded')
-  }
-
-  // handleScrollSmooth(e){
-  //   const data = e.target.dataset['goto']
-  //   const selector = `section[data-anchor='${data}']`
-  //   const $target = document.querySelector(selector).offsetTop
-  //
-  //   const scrollIt = () => {
-  //     // Si l'offset est > à l'offset
-  //   }
-  // }
-
-  handleSetActive(to) {
-    console.log(to);
   }
 
   render() {
     const fnButton = (name, stLink) => {
-      const id = name
-      const windowMobile = name === 'Projet' ? true : false;
       return (
         <ButtonTag type="button" activeClass="current-position" to={ stLink } spy={ true } smooth={ true } offset={ stLink === 'projet' || stLink === 'about'? -60 : null }>
           { name }
@@ -127,9 +98,7 @@ export default class Navbar extends React.Component {
             {listItems}
           </Ul>
         </MenuResponsive>
-        <HamburgerToggle style={{
-            color: ((e)=>console.log(e))
-          }} onClick={(e) => this.handleToggle(e)}>
+        <HamburgerToggle onClick={(e) => this.handleToggle(e)}>
           <Bar/>
           <span>
             {this.state.label ? 'FERMER' : 'MENU'}
