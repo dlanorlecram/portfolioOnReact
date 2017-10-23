@@ -205,11 +205,8 @@ export const Ul = glamorous.ul({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%,-50%)',
-    display: 'flex',
-    position: 'absolute',
-    ' li': {
-      flex: '1 0 auto'
-    }
+    display: 'table',
+    position: 'absolute'
   },
   [mediaQueries.min960]: {
 
