@@ -114,12 +114,16 @@ ListItemMenu = glamorous.li({
 
   },
   [mediaQueries.max959]: {
-    fontWeight: 900,
-    fontSize: 13,
     transform: 'translateY(-20px)',
     opacity: 0,
     transition: 'transform 300ms 150ms cubic-bezier(.15,.99,.32,1), opacity 300ms cubic-bezier(0,0,.58,1)',
-    '& button, a':{
+    ' button': {
+      backgroundColor: 'transparent',
+      cursor: 'pointer'
+    },
+    ' button, a': {
+      fontSize: 13,
+      fontWeight: 900,
       color: '#F8E3BB',
     }
   }
