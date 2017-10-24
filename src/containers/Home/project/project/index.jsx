@@ -108,12 +108,12 @@ export default class Projects extends Component {
       </Description>
       <CardContent>
         { obj.content }
-        {obj.source ? (<span style={{display: 'block', margin: '10px 0 0'}}>Source: <a href={obj.source}>{obj.source}</a></span>) : null}
+        {obj.source ? (<span style={{display: 'block', margin: '10px 0 0'}}>Source: <a href={obj.source} style={{color: 'black'}}>{obj.source}</a></span>) : null}
         <BottomLinkMobile style={{textAlign: 'center',}}>
           { obj.depot !== undefined ? <a href={obj.depot} target='_blank'>
             <i className='icon ion-network'></i>
           </a> : null }
-          { obj.url !== undefined ? <a href={obj.url} style={{color: 'black'}} target='_blank'>
+          { obj.url !== undefined ? <a href={obj.url} target='_blank'>
             <i className='icon ion-link'></i>
           </a> : null }
         </BottomLinkMobile>
@@ -125,13 +125,13 @@ export default class Projects extends Component {
         </div>
         <div>
           <p>{ obj.content }
-            {obj.source ? (<span style={{display: 'block', margin: '10px 0 0'}}>Source: <a href={obj.source}>{obj.source}</a></span>) : null}</p>
+            {obj.source ? (<span style={{display: 'block', margin: '10px 0 0'}}>Source: <a href={obj.source} style={{color: 'black'}}>{obj.source}</a></span>) : null}</p>
           <BottomLink>
             { obj.depot !== undefined ?
               <a href={obj.depot} target='_blank'>
               <i className='icon ion-network'></i>
               </a> : null }
-            { obj.url !== undefined ? <a href={obj.url} style={{color: 'black'}} target='_blank'>
+            { obj.url !== undefined ? <a href={obj.url} target='_blank'>
               <i className='icon ion-link'></i>
             </a> : null }
           </BottomLink>
