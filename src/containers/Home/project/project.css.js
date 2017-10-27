@@ -66,7 +66,7 @@ export const GalleryProjects = glamorous.div({
   padding: '25px 0 1px',
   display: 'flex',
   flexWrap: 'wrap',
-  alignItems: 'flex-start',
+  justifyContent: 'center',
   margin: '0 auto',
   [mediaQueries.max767]: {
     maxWidth: 375
