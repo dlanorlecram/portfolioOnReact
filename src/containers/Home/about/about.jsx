@@ -79,7 +79,7 @@ export default class About extends Component{
         <li key={key}>
           <p>{item.name}</p>
           <div>
-            <div style={{width: `${item.percent}%`}} data-percentEnable={false} className='disable'></div>
+            <div style={{width: `${item.percent}%`}} data-percent-enable={false} className='disable'></div>
             <div className='jauge-end' style={{width: 1, position: 'relative'}}></div>
           </div>
         </li>
