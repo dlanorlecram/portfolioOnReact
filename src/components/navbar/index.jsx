@@ -1,6 +1,5 @@
 import React from 'react';
-import Scroll from 'react-scroll';
-//import Element from './helpers';
+import {Link, scrollSpy} from 'react-scroll';
 import {
   Nav,
   MenuResponsive,
@@ -10,20 +9,6 @@ import {
   Ul,
   LogoName
 } from './navbar.css.js'
-
-var Helpers      = Scroll.Helpers;
-const scrollSpy  = Scroll.scrollSpy;
-
-class Button extends React.Component {
-  render() {
-   return (
-     <button {...this.props}>
-       {this.props.children}
-     </button>
-   )
-  }
-}
-const ButtonTag = Helpers.Scroll(Button)
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -68,9 +53,9 @@ export default class Navbar extends React.Component {
   render() {
     const fnButton = (name, stLink) => {
       return (
-        <ButtonTag type="button" activeClass="current-position" to={ stLink } spy={ true } smooth={ true } offset={ stLink === 'projet' || stLink === 'about'? -60 : null }>
+        <Link type="button" activeClass="current-position" to={ stLink } spy={ true } smooth={ true } offset={ stLink === 'projet' || stLink === 'about'? -60 : null }>
           { name }
-        </ButtonTag>
+        </Link>
       )
     }
 
