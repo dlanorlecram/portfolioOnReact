@@ -18,7 +18,7 @@ function FollowLink() {
 
   const link = data.map((obj, key) =>
     <li key={key}>
-      <a href={obj.url} target='_blank'>
+      <a href={obj.url} target='_blank' rel="noopener noreferrer">
         <i className={`devicon-${obj.icon}`}></i>
       </a>
     </li>

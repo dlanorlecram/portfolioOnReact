@@ -110,10 +110,10 @@ export default class Projects extends Component {
         { obj.content }
         {obj.source ? (<span style={{display: 'block', margin: '10px 0 0'}}>Source: <a href={'http://'+obj.source} style={{color: 'black'}}>{obj.source}</a></span>) : null}
         <BottomLinkMobile style={{textAlign: 'center',}}>
-          { obj.depot !== undefined ? <a href={obj.depot} target='_blank'>
+          { obj.depot !== undefined ? <a href={obj.depot} target='_blank' rel="noopener noreferrer" >
             <i className='icon ion-network'></i>
           </a> : null }
-          { obj.url !== undefined ? <a href={obj.url} target='_blank'>
+          { obj.url !== undefined ? <a href={obj.url} target='_blank' rel="noopener noreferrer">
             <i className='icon ion-link'></i>
           </a> : null }
         </BottomLinkMobile>
@@ -128,10 +128,10 @@ export default class Projects extends Component {
             {obj.source ? (<span style={{display: 'block', margin: '10px 0 0'}}>Source: <a href={'http://'+obj.source} style={{color: 'black'}}>{obj.source}</a></span>) : null}</p>
           <BottomLink>
             { obj.depot !== undefined ?
-              <a href={obj.depot} target='_blank'>
+              <a href={obj.depot} target='_blank' rel="noopener noreferrer">
               <i className='icon ion-network'></i>
               </a> : null }
-            { obj.url !== undefined ? <a href={obj.url} target='_blank'>
+            { obj.url !== undefined ? <a href={obj.url} target='_blank' rel="noopener noreferrer">
               <i className='icon ion-link'></i>
             </a> : null }
           </BottomLink>
