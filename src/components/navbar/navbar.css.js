@@ -101,7 +101,7 @@ ListItemMenu = glamorous.li({
     }
   },
   [mediaQueries.min960]: {
-    ' button': {
+    ' button,a': {
       backgroundColor: 'transparent',
       cursor: 'pointer'
     },
@@ -117,7 +117,7 @@ ListItemMenu = glamorous.li({
     transform: 'translateY(-20px)',
     opacity: 0,
     transition: 'transform 300ms 150ms cubic-bezier(.15,.99,.32,1), opacity 300ms cubic-bezier(0,0,.58,1)',
-    ' button': {
+    ' button, a': {
       backgroundColor: 'transparent',
       cursor: 'pointer'
     },

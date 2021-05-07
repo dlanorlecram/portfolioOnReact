@@ -9,10 +9,8 @@ import '../node_modules/devicon-2.2/devicon.css';
 //import './App.css';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = { projects: [] }
-  }
+  state = { projects: [] }
+
 
   componentDidMount() {
 
