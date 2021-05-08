@@ -1,7 +1,7 @@
 import { mediaQueries } from '../../../data/responsive'
-import glamorous from 'glamorous';
+import styled from '@emotion/styled'
 
-export const ContainerAbout = glamorous.section({
+export const ContainerAbout = styled.section({
   position: 'relative',
   //padding: '80px 15px 28px',
   padding: '160px 15px 60px',
@@ -16,7 +16,7 @@ export const ContainerAbout = glamorous.section({
   }
 });
 
-export const BackgroundTitle = glamorous.p({
+export const BackgroundTitle = styled.p({
   color: 'rgba(0, 0, 0, .05)',
   fontWeight: 900,
   position: 'absolute',
@@ -67,7 +67,7 @@ const ContentAboutP = {
   }
 }
 
-export const ContentAbout = glamorous.div({
+export const ContentAbout = styled.div({
   ...ContentAboutH2,
   ...ContentAboutP
 });
@@ -108,7 +108,7 @@ const buttonSkill = {
   }
 }
 
-export const ControlSkill = glamorous.div({
+export const ControlSkill = styled.div({
   ...controlPercent,
   '& .container-buttons': {
     display: 'inline-block',
@@ -186,7 +186,7 @@ const ItemSkill = {
   }
 }
 
-export const SkillContainer = glamorous.div({
+export const SkillContainer = styled.div({
     fontFamily: '"Overpass", sans-serif',
     ...skillTitle,
     ...groupSkill,

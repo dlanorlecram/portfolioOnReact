@@ -1,5 +1,5 @@
-import glamorous from 'glamorous';
 import { mediaQueries } from './../../data/responsive'
+import styled from '@emotion/styled';
 
 const NavtransitionStyle = {
   '.transition-style': {
@@ -17,7 +17,7 @@ const NavtransitionStyle = {
   },
 }
 
-export const Nav = glamorous.nav({
+export const Nav = styled.nav({
   [mediaQueries.max959]:{
     minHeight: '58',
     width: '100%',
@@ -29,7 +29,7 @@ export const Nav = glamorous.nav({
     '> div:last-child':{
       display: 'block'
     },
-    '& div:first-child>a': {
+    '& div:first-of-type>a': {
       display: 'none'
     }
   },
@@ -41,10 +41,10 @@ export const Nav = glamorous.nav({
     backgroundColor:'transparent',
     transition: 'height 400ms, background-color 500ms',
     ...NavtransitionStyle,
-    '> div:first-child>a': {
+    '> div:first-of-type>a': {
       fontWeight: 700
     },
-    '> div:nth-child(n+2)': {
+    '> div:nth-of-type(n+2)': {
       position: 'absolute',
       top: '50%',
       right: 0,
@@ -55,7 +55,7 @@ export const Nav = glamorous.nav({
   }
 }),
 
-MenuResponsive = glamorous.div({
+MenuResponsive = styled.div({
   [mediaQueries.max959]: {
     position: 'relative',
     overflow:'hidden',
@@ -83,7 +83,7 @@ MenuResponsive = glamorous.div({
   }
 }),
 
-ListItemMenu = glamorous.li({
+ListItemMenu = styled.li({
   display: 'inline-block',
   margin: '0 10px',
   fontFamily: "'Overpass', sans-serif",
@@ -101,7 +101,7 @@ ListItemMenu = glamorous.li({
     }
   },
   [mediaQueries.min960]: {
-    ' button': {
+    ' button,a': {
       backgroundColor: 'transparent',
       cursor: 'pointer'
     },
@@ -117,14 +117,9 @@ ListItemMenu = glamorous.li({
     transform: 'translateY(-20px)',
     opacity: 0,
     transition: 'transform 300ms 150ms cubic-bezier(.15,.99,.32,1), opacity 300ms cubic-bezier(0,0,.58,1)',
-    ' button': {
+    ' button, a': {
       backgroundColor: 'transparent',
       cursor: 'pointer'
-    },
-    ' button, a': {
-      fontSize: 13,
-      fontWeight: 900,
-      color: '#F8E3BB',
     }
   }
 });
@@ -140,7 +135,7 @@ const transition = function(direction, distance, inverse, rotate){
 
 const barBeforeAfter = {
   ':before,:after': {
-    content: ' ',
+    content: '" "',
     height: 4,
     width: '100%',
     backgroundColor: '#fff',
@@ -150,7 +145,7 @@ const barBeforeAfter = {
   ':after': transition('bottom','-10', false),
 }
 
-export const Bar = glamorous.div({
+export const Bar = styled.div({
   backgroundColor: '#fff',
   height: 4,
   width: '100%',
@@ -167,7 +162,7 @@ export const Bar = glamorous.div({
   },
 }),
 
-HamburgerToggle = glamorous.div({
+HamburgerToggle = styled.div({
   width: 35,
   height: 30,
   marginLeft: 30,
@@ -183,7 +178,7 @@ HamburgerToggle = glamorous.div({
   }
 })
 
-export const LogoName = glamorous.div({
+export const LogoName = styled.div({
   fontFamily: '"Overpass",sans-serif',
   fontSize: 18,
   '& .hidden':{
@@ -198,7 +193,7 @@ export const LogoName = glamorous.div({
   }
 })
 
-export const Ul = glamorous.ul({
+export const Ul = styled.ul({
   padding: 0,
   margin: 0,
   [mediaQueries.max959]: {

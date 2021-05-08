@@ -1,6 +1,6 @@
-import glamorous from 'glamorous';
+import styled from '@emotion/styled'
 
-export const FooterTag = glamorous.footer({
+export const FooterTag = styled.footer({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -38,7 +38,7 @@ const InnerFooterUl = {
   }
 }
 
-export const InnerFooter = glamorous.div({
+export const InnerFooter = styled.div({
   textAlign: 'center',
   // position: 'absolute',
   // top: '50%',

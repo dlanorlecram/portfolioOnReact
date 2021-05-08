@@ -1,9 +1,9 @@
-import glamorous from 'glamorous';
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
 import Intro from '../src/intro.jpg'
 import { mediaQueries } from '../../../data/responsive'
-import { css } from 'glamor'
 
-export const ContainerIntro = glamorous.section({
+export const ContainerIntro = styled.section({
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
@@ -24,30 +24,30 @@ export const ContainerIntro = glamorous.section({
   }
 })
 
-const bounceFirstCircle = css.keyframes({
+const bounceFirstCircle = keyframes({
   '0%, 50%': {transform:'scale(0)'},
   '100%': {transform:'scale(1)'}
 });
 
-const bounceInnerCircle = css.keyframes({
+const bounceInnerCircle = keyframes({
   '0%, 50%': {transform:'scale(0)', opacity:0},
   '90%': {transform:'scale(1.2)',opacity:1},
   '100%': {transform:'scale(1)'}
 });
 
-const translateTitre = css.keyframes({
+const translateTitre = keyframes({
   '0%, 50%': { transform:'translateY(25vh)', opacity: 0 },
   '65%': { transform:'translateY(-10px)', opacity:.4 },
   '100%': { transform:'translateY(0)',opacity: 1 }
 });
 
-const translateSubtitle = css.keyframes({
+const translateSubtitle = keyframes({
   '0%, 50%': { transform:'translateX(-25vh)', opacity: 0 },
   '65%': { transform:'translateX(10px)', opacity: .4 },
   '100%': { transform:'translateX(0)',opacity: 1 }
 });
 
-export const Picture = glamorous.div({
+export const Picture = styled.div({
   backgroundColor: '#ffffff',
   // height: 145,
   // width: 145,
@@ -78,7 +78,7 @@ export const Picture = glamorous.div({
   }
 })
 
-export const Title = glamorous.h1({
+export const Title = styled.h1({
   fontFamily: '"Overpass", sans-serif',
   fontWeight: 900,
   color: '#263645',
@@ -92,7 +92,7 @@ export const Title = glamorous.h1({
   [mediaQueries.min960]:{fontSize: 35}
 })
 
-export const Subtitle = glamorous.p({
+export const Subtitle = styled.p({
   fontFamily: '"Overpass", sans-serif',
   fontWeight: 400,
   //fontStyle: 'italic',

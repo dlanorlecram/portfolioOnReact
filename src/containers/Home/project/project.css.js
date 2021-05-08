@@ -1,5 +1,5 @@
 import { mediaQueries } from '../../../data/responsive'
-import glamorous from 'glamorous';
+import styled from '@emotion/styled'
 
 /*
 *   Effect
@@ -12,7 +12,7 @@ const shadowEffect = {
 /*
 **/
 
-export const ContainerProject = glamorous.section({
+export const ContainerProject = styled.section({
   backgroundColor: '#86BCE4',
   // backgroundColor: '#2C3590',
   // backgroundColor: 'rgb(255,184,48)',
@@ -44,7 +44,7 @@ const groupButtonFilter = {
   }
 }
 
-export const FilterBlock = glamorous.div({
+export const FilterBlock = styled.div({
   width: 245,
   margin: '0 auto',
   '> p' : {
@@ -60,7 +60,7 @@ export const FilterBlock = glamorous.div({
 })
 
 //Gallery Projects
-export const GalleryProjects = glamorous.div({
+export const GalleryProjects = styled.div({
   minHeight: '292px',
   position: 'Relative',
   padding: '25px 0 1px',
@@ -139,7 +139,7 @@ const SubCardContenTitle = {
 }
 
 const SubCardContenHeader = {
-  '> div:first-child':{
+  '> div:first-of-type':{
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -151,7 +151,7 @@ const SubCardContenHeader = {
 }
 
 
-export const SubCardContent = glamorous.div({
+export const SubCardContent = styled.div({
   position: 'absolute',
   height: '100%',
   //bottom: 0,
@@ -169,11 +169,11 @@ export const SubCardContent = glamorous.div({
   ...SubCardContenHeader,
 })
 
-export const Picture = glamorous.picture({
+export const Picture = styled.picture({
   cursor: 'pointer'
 })
 
-export const Card = glamorous.div({
+export const Card = styled.div({
   position: 'relative',
   backgroundColor: 'white',
   //width: 'calc(33% - 30px)',
@@ -239,7 +239,7 @@ export const Card = glamorous.div({
 });
 
 
-export const Description = glamorous.div({
+export const Description = styled.div({
   color: '#6C6C6C',
   display: 'flex',
   justifyContent: 'space-between',
@@ -251,7 +251,7 @@ export const Description = glamorous.div({
   }
 })
 
-export const CardTitle = glamorous.p({
+export const CardTitle = styled.p({
   opacity: 1,
   fontSize: 18,
   fontFamily: '"Overpass", sans-serif',
@@ -279,7 +279,7 @@ const linkCard = {
   }
 }
 
-export const CardContent = glamorous.p({
+export const CardContent = styled.p({
   fontFamily: '"Overpass", sans-serif',
   fontSize: 13,
   padding: '0px 15px',
@@ -295,7 +295,7 @@ export const CardContent = glamorous.p({
   '>a':{...linkCard},
 })
 
-export const BottomLink = glamorous.div({
+export const BottomLink = styled.div({
   bottom: 0,
   position: 'absolute',
   right: 0,
@@ -311,7 +311,7 @@ export const BottomLink = glamorous.div({
   }
 })
 
-export const BottomLinkMobile = glamorous.span({
+export const BottomLinkMobile = styled.span({
   display: 'flex',
   justifyContent: 'space-evenly',
   margin: '10px 0 15px',
@@ -323,12 +323,12 @@ export const BottomLinkMobile = glamorous.span({
   }
 })
 
-export const TitleGallery = glamorous.div({
+export const TitleGallery = styled.div({
   width: 1024,
   margin: '0 auto'
 })
 
-// export const CardBigTitle =glamorous.h2({
+// export const CardBigTitle =styled.h2({
 //   display: 'block',
 //   fontFamily: '"Overpass",sans-serif',
 //   color: '#6C6C6C',
